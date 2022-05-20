@@ -6,36 +6,61 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Full Land Creature")]
     [SerializeField] float landRunSpeed = 5;
     [SerializeField] float landJumpPower = 10;
     [SerializeField] float landGravity = 5;
 
+    [Header("Full Water Creature")]
     [SerializeField] float waterRunSpeed = 5;
     [SerializeField] float waterJumpPower = 10;
     [SerializeField] float waterGravity = 5;
 
     bool isInWater = false;
-    float runSpeed;
-    float jumpPower;
+    float runSpeed = 5;
+    float jumpPower = 10;
 
     Vector2 moveInput;
     Rigidbody2D myRigidBody;
     Collider2D myCollider;
 
     // game management
-    GameManager manager;
+    GameManager gameManager;
 
     void Start()
     {
+        // setup fields
         myRigidBody = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<CapsuleCollider2D>();
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
-        manager = FindObjectOfType<GameManager>();
+    void Update()
+    {
+        UpdateTerranType();
+        Run();
+    }
 
-        // myRigidBody.gravityScale = landGravity;
-        // runSpeed = landRunSpeed;
-        jumpPower = landJumpPower;
-        // isInWater = false;
+    private void UpdateTerranType()
+    {
+        float currentTransition = gameManager.GetTransitionLevel();
+
+        if (!myCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
+        {
+            // runSpeed = landRunSpeed;
+            // jumpPower = landJumpPower;
+            // myRigidBody.gravityScale = landGravity;
+            isInWater = false;
+            gameManager.IncrementLand();
+        }
+        else
+        {
+            // runSpeed = waterRunSpeed;
+            // jumpPower = waterJumpPower;
+            // myRigidBody.gravityScale = waterGravity;
+            isInWater = true;
+            gameManager.IncrementWater();
+        }
     }
 
     private void Run()
@@ -55,31 +80,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        UpdateTerranType();
-        Run();
-    }
-
-    private void UpdateTerranType()
-    {
-        if (!myCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
-        {
-            // runSpeed = landRunSpeed;
-            // jumpPower = landJumpPower;
-            // myRigidBody.gravityScale = landGravity;
-            isInWater = false;
-            manager.IncrementLand();
-        }
-        else
-        {
-            // runSpeed = waterRunSpeed;
-            // jumpPower = waterJumpPower;
-            // myRigidBody.gravityScale = waterGravity;
-            isInWater = true;
-            manager.IncrementWater();
-        }
-    }
+    // ----------- process input actions -------------
 
     void OnMove(InputValue value)
     {
@@ -88,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-
+        // only jump when touching platforms or in water
         if (!myCollider.IsTouchingLayers(LayerMask.GetMask("Platforms", "Water")))
         {
             return;
