@@ -22,12 +22,20 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D myRigidBody;
     Collider2D myCollider;
 
+    // game management
+    GameManager manager;
+
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<CapsuleCollider2D>();
 
-        myRigidBody.gravityScale = landGravity;
+        manager = FindObjectOfType<GameManager>();
+
+        // myRigidBody.gravityScale = landGravity;
+        // runSpeed = landRunSpeed;
+        jumpPower = landJumpPower;
+        // isInWater = false;
     }
 
     private void Run()
@@ -41,9 +49,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             // do water movement
-
             float yMovement = Mathf.Clamp(myRigidBody.velocity.y + moveInput.y * waterRunSpeed, -10, 10);
-
             Vector2 playerVelocity = new Vector2(moveInput.x * waterRunSpeed, yMovement);
             myRigidBody.velocity = playerVelocity;
         }
@@ -59,17 +65,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!myCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
         {
-            runSpeed = landRunSpeed;
-            jumpPower = landJumpPower;
-            myRigidBody.gravityScale = landGravity;
+            // runSpeed = landRunSpeed;
+            // jumpPower = landJumpPower;
+            // myRigidBody.gravityScale = landGravity;
             isInWater = false;
+            manager.IncrementLand();
         }
         else
         {
-            runSpeed = waterRunSpeed;
-            jumpPower = waterJumpPower;
-            myRigidBody.gravityScale = waterGravity;
+            // runSpeed = waterRunSpeed;
+            // jumpPower = waterJumpPower;
+            // myRigidBody.gravityScale = waterGravity;
             isInWater = true;
+            manager.IncrementWater();
         }
     }
 
@@ -88,9 +96,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (value.isPressed)
         {
+            Debug.Log("Jump");
             myRigidBody.velocity += new Vector2(0, jumpPower);
-
-            // myRigidBody.
         }
     }
 }
