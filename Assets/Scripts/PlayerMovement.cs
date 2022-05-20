@@ -39,6 +39,9 @@ public class PlayerMovement : MonoBehaviour
     {
         UpdateTerranType();
         Run();
+        if(gameManager.IsGameOver()){
+            GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
+        }
     }
 
     private void UpdateTerranType()
