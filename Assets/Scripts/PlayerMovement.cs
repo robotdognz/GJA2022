@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         // setup fields
         myRigidBody = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<CapsuleCollider2D>();
-        myFeetCollider = GetComponent<BoxCollider2D>();
+        myFeetCollider = GetComponentInChildren<BoxCollider2D>();
         gameManager = FindObjectOfType<GameManager>();
         waters = FindObjectsOfType<BuoyancyEffector2D>();
     }
@@ -186,39 +186,24 @@ public class PlayerMovement : MonoBehaviour
             // do most powerful jump
             float tempJumpPower = Mathf.Max(currentWaterJumpPower, currentLandJumpPower);
             myRigidBody.velocity += new Vector2(0, tempJumpPower);
-            Debug.Log("Jump" + tempJumpPower);
+            // Debug.Log("Jump" + tempJumpPower);
         }
         else if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Platforms")))
         {
             // do land jump
             myRigidBody.velocity += new Vector2(0, currentLandJumpPower);
-            Debug.Log("Jump" + currentLandJumpPower);
+            // Debug.Log("Jump" + currentLandJumpPower);
         }
         else if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
         {
 
             // do water jump
             myRigidBody.velocity += new Vector2(0, currentWaterJumpPower);
-            Debug.Log("Jump" + currentWaterJumpPower);
+            // Debug.Log("Jump" + currentWaterJumpPower);
         }
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Water")
-        {
-            Debug.Log("Enter water sound effect");
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.tag == "Water")
-        {
-            Debug.Log("Exit water sound effect");
-        }
-    }
 
     void OnToggleMode(InputValue value)
     {
