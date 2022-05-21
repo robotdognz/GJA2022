@@ -52,6 +52,15 @@ public class PlayerMovement : MonoBehaviour
         UpdateTerranType();
         UpdateMovementSkill();
         Run();
+
+        // flip player
+        bool playerHasHorizontalSpeed = Mathf.Abs(moveInput.x) > Mathf.Epsilon;
+
+        if (playerHasHorizontalSpeed)
+        {
+            transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x), 1f);
+        }
+
         if (gameManager.IsGameOver())
         {
             GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
