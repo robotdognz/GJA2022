@@ -92,6 +92,11 @@ public class GameManager : MonoBehaviour
         timerRunning = false;
     }
 
+    public void IncrementWater(float amount)
+    {
+        transition = Mathf.Clamp(transition - amount, transitionMin, transitionMax);
+    }
+
 
     public void IncrementWater()
     {
@@ -109,6 +114,11 @@ public class GameManager : MonoBehaviour
             transition = Mathf.Clamp(transition - transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
             StopTimer();
         }
+    }
+
+    public void IncrementLand(float amount)
+    {
+        transition = Mathf.Clamp(transition + amount, transitionMin, transitionMax);
     }
 
     public void IncrementLand()

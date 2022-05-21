@@ -99,12 +99,12 @@ public class PlayerMovement : MonoBehaviour
         if (!myCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
         {
             isInWater = false;
-            gameManager.IncrementLand();
+            // gameManager.IncrementLand();
         }
         else
         {
             isInWater = true;
-            gameManager.IncrementWater();
+            // gameManager.IncrementWater();
         }
     }
 
