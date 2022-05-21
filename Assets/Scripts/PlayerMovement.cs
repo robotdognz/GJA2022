@@ -113,11 +113,6 @@ public class PlayerMovement : MonoBehaviour
         float yMovement = myRigidBody.velocity.y;
         float xMovement = myRigidBody.velocity.x;
 
-
-
-
-
-
         if (!isInWater)
         {
             // do land movement
