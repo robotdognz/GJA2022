@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("General Land Movement")]
     [SerializeField] float movementIncrease = 0.2f;
-    [SerializeField] float movementSlow = 0.999f; //0.999f
+    [SerializeField] float movementSlow = 0.98f;
 
     // current state
     bool isInWater = false;
@@ -36,7 +36,8 @@ public class PlayerMovement : MonoBehaviour
     Vector2 moveInput;
     Rigidbody2D myRigidBody;
     Collider2D myCollider;
-    BuoyancyEffector2D water;
+    // BuoyancyEffector2D water;
+    BuoyancyEffector2D[] waters;
 
     // game management
     GameManager gameManager;
@@ -47,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<CapsuleCollider2D>();
         gameManager = FindObjectOfType<GameManager>();
-        water = FindObjectOfType<BuoyancyEffector2D>();
+        waters = FindObjectsOfType<BuoyancyEffector2D>();
     }
 
     void Update()
@@ -81,7 +82,11 @@ public class PlayerMovement : MonoBehaviour
         currentWaterJumpPower = FloatLerp(waterCreature_waterJumpPower, landCreature_waterJumpPower, transition);
 
         currentBuoyancy = FloatLerp(waterCreatureBuoyancy, landCreatureBuoyancy, transition);
-        water.density = currentBuoyancy;
+
+        foreach (BuoyancyEffector2D water in waters)
+        {
+            water.density = currentBuoyancy;
+        }
 
         // Debug.Log(currentRunSpeed);
     }
