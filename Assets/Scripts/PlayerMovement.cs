@@ -39,7 +39,8 @@ public class PlayerMovement : MonoBehaviour
     {
         UpdateTerranType();
         Run();
-        if(gameManager.IsGameOver()){
+        if (gameManager.IsGameOver())
+        {
             GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
         }
     }
@@ -64,6 +65,11 @@ public class PlayerMovement : MonoBehaviour
             isInWater = true;
             gameManager.IncrementWater();
         }
+    }
+
+    Vector2 Lerp(Vector2 start, Vector2 end, float percent)
+    {
+        return (start + percent * (end - start));
     }
 
     private void Run()

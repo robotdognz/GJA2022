@@ -53,12 +53,12 @@ public class GameManager : MonoBehaviour
                 }
 
                 transitionBar.gameObject.transform.Find("Background").GetComponent<Image>().color = bad;
-                transitionBar.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = bad;
+                // transitionBar.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = bad;
             }
             else
             {
                 transitionBar.gameObject.transform.Find("Background").GetComponent<Image>().color = fine;
-                transitionBar.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = fine;
+                // transitionBar.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = fine;
             }
         }
     }
