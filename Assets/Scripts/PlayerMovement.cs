@@ -11,14 +11,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Vector2 landCreature_SwimSpeed = new Vector2(0, 5);
     [SerializeField] float landCreature_landJumpPower = 10;
     [SerializeField] float landCreature_waterJumpPower = 0;
+    [SerializeField] float landCreatureBuoyancy = 2;
 
     [Header("Full Water Creature")]
     [SerializeField] float waterCreature_RunSpeed = 3;
     [SerializeField] Vector2 waterCreature_SwimSpeed = new Vector2(7, 7);
     [SerializeField] float waterCreature_landJumpPower = 0.5f;
     [SerializeField] float waterCreature_waterJumpPower = 20;
+    [SerializeField] float waterCreatureBuoyancy = 0;
 
-    float movementIncrease = 0.2f;
+    // float movementIncrease = 0.2f;
 
     // current state
     bool isInWater = false;
@@ -26,10 +28,12 @@ public class PlayerMovement : MonoBehaviour
     Vector2 currentSwimSpeed;
     float currentLandJumpPower;
     float currentWaterJumpPower;
+    float currentBuoyancy;
 
     Vector2 moveInput;
     Rigidbody2D myRigidBody;
     Collider2D myCollider;
+    BuoyancyEffector2D water;
 
     // game management
     GameManager gameManager;
@@ -40,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<CapsuleCollider2D>();
         gameManager = FindObjectOfType<GameManager>();
+        water = FindObjectOfType<BuoyancyEffector2D>();
     }
 
     void Update()
@@ -62,6 +67,9 @@ public class PlayerMovement : MonoBehaviour
 
         currentLandJumpPower = FloatLerp(waterCreature_landJumpPower, landCreature_landJumpPower, transition);
         currentWaterJumpPower = FloatLerp(waterCreature_waterJumpPower, landCreature_waterJumpPower, transition);
+
+        currentBuoyancy = FloatLerp(waterCreatureBuoyancy, landCreatureBuoyancy, transition);
+        water.density = currentBuoyancy;
 
         // Debug.Log(currentRunSpeed);
     }
