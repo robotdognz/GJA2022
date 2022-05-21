@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] float transitionSpeed = 0.1f;
     [SerializeField] float endGameAfterFullTransitionTime = 2;
 
+    [SerializeField] Scene deathScene;
+
     // transition
     float transition = 0.5f;
     float transitionMin = 0; // full water
@@ -34,6 +36,8 @@ public class GameManager : MonoBehaviour
 
         // setup timer
         timer = endGameAfterFullTransitionTime;
+
+        Time.timeScale = 1;
     }
 
     void Update()
@@ -72,12 +76,24 @@ public class GameManager : MonoBehaviour
         // gameOver = true;
         // remove transition bar UI element
         // transitionBar.gameObject.SetActive(false);
-        Restart();
+        EndRound();
     }
 
-    public void Restart()
+    public void EndRound()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        if (transition < 0.5f)
+        {
+            // water creature
+            FindObjectOfType<GameOverScreen>().GameOverWater();
+
+        }
+        else
+        {
+            // land creature
+            FindObjectOfType<GameOverScreen>().GameOverLand();
+        }
     }
 
     void StartTimer()
@@ -122,7 +138,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+
 
     public void IncrementLand()
     {
@@ -154,7 +170,7 @@ public class GameManager : MonoBehaviour
 
     public void ToggleMode()
     {
-        if(transition != transitionMin)
+        if (transition != transitionMin)
         {
             transition = transitionMin;
         }
