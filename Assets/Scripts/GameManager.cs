@@ -97,47 +97,49 @@ public class GameManager : MonoBehaviour
         transition = Mathf.Clamp(transition - amount, transitionMin, transitionMax);
     }
 
-
-    public void IncrementWater()
-    {
-        if (!timerRunning)
-        {
-            transition = Mathf.Clamp(transition - transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
-            if (transition <= transitionMin)
-            {
-                StartTimer();
-            }
-        }
-        else if (transition >= transitionMax)
-        {
-            // start incrementing transition again and stop timer
-            transition = Mathf.Clamp(transition - transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
-            StopTimer();
-        }
-    }
-
     public void IncrementLand(float amount)
     {
         transition = Mathf.Clamp(transition + amount, transitionMin, transitionMax);
     }
 
-    public void IncrementLand()
-    {
-        if (!timerRunning)
-        {
-            transition = Mathf.Clamp(transition + transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
-            if (transition >= transitionMax)
-            {
-                StartTimer();
-            }
-        }
-        else if (transition <= transitionMin)
-        {
-            // start incrementing transition again and stop timer
-            transition = Mathf.Clamp(transition + transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
-            StopTimer();
-        }
-    }
+
+    // public void IncrementWater()
+    // {
+    //     if (!timerRunning)
+    //     {
+    //         transition = Mathf.Clamp(transition - transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
+    //         if (transition <= transitionMin)
+    //         {
+    //             StartTimer();
+    //         }
+    //     }
+    //     else if (transition >= transitionMax)
+    //     {
+    //         // start incrementing transition again and stop timer
+    //         transition = Mathf.Clamp(transition - transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
+    //         StopTimer();
+    //     }
+    // }
+
+    
+
+    // public void IncrementLand()
+    // {
+    //     if (!timerRunning)
+    //     {
+    //         transition = Mathf.Clamp(transition + transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
+    //         if (transition >= transitionMax)
+    //         {
+    //             StartTimer();
+    //         }
+    //     }
+    //     else if (transition <= transitionMin)
+    //     {
+    //         // start incrementing transition again and stop timer
+    //         transition = Mathf.Clamp(transition + transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
+    //         StopTimer();
+    //     }
+    // }
 
     public float GetTransitionLevel()
     {
@@ -147,5 +149,17 @@ public class GameManager : MonoBehaviour
     public bool IsGameOver()
     {
         return gameOver;
+    }
+
+    public void ToggleMode()
+    {
+        if(transition != transitionMin)
+        {
+            transition = transitionMin;
+        }
+        else
+        {
+            transition = transitionMax;
+        }
     }
 }
