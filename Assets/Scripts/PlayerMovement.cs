@@ -145,7 +145,7 @@ public class PlayerMovement : MonoBehaviour
             //     }
             // }
 
-            xMovement = myRigidBody.velocity.x + moveInput.x * currentRunSpeed;
+            xMovement = moveInput.x * currentRunSpeed; //myRigidBody.velocity.x + 
             yMovement = myRigidBody.velocity.y;
         }
         else
