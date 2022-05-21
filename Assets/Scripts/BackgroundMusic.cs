@@ -28,4 +28,17 @@ public class BackgroundMusic : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
+
+    public IEnumerator StartFadeOut(float duration)
+    {
+        float currentTime = 0;
+        float start = music.volume;
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            music.volume = Mathf.Lerp(start, 0, currentTime / duration);
+            yield return null;
+        }
+        yield break;
+    }
 }

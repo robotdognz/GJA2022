@@ -14,13 +14,16 @@ public class LevelEnd : MonoBehaviour
 
             // SceneManager.LoadScene("99_EndGame");
 
-            StartCoroutine(WinGame());
+            GameManager manager = FindObjectOfType<GameManager>();
+
+            StartCoroutine(manager.WinGame());
         }
     }
 
-    IEnumerator WinGame()
-    {
-        yield return new WaitForSecondsRealtime(1);
-        SceneManager.LoadScene("99_EndGame");
-    }
+    // IEnumerator WinGame()
+    // {
+    //     yield return new WaitForSecondsRealtime(1);
+        
+    //     SceneManager.LoadScene("99_EndGame");
+    // }
 }

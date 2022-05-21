@@ -76,10 +76,10 @@ public class GameManager : MonoBehaviour
         // gameOver = true;
         // remove transition bar UI element
         // transitionBar.gameObject.SetActive(false);
-        EndRound();
+        RestartGame();
     }
 
-    public void EndRound()
+    public void RestartGame()
     {
         // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
@@ -87,38 +87,47 @@ public class GameManager : MonoBehaviour
         {
             // water creature
             FindObjectOfType<GameOverScreen>().GameOverWater();
-
+            // Destroy(FindObjectOfType<BackgroundMusic>());
         }
         else
         {
             // land creature
             FindObjectOfType<GameOverScreen>().GameOverLand();
+            // Destroy(FindObjectOfType<BackgroundMusic>());
         }
+    }
+
+    public IEnumerator WinGame()
+    {
+        // fade out the background music before ending
+        float fadeOutTime = 1;
+        StartCoroutine(FindObjectOfType<BackgroundMusic>().StartFadeOut(fadeOutTime));
+        yield return new WaitForSecondsRealtime(fadeOutTime);
+
+        // kill all the background music game objects
+        BackgroundMusic[] backgroundMusics = FindObjectsOfType<BackgroundMusic>();
+        foreach(BackgroundMusic bm in backgroundMusics)
+        {
+            bm.GetComponent<AudioSource>().Stop();
+            Destroy(bm);
+        }
+
+        // load end game scene
+        SceneManager.LoadScene("99_EndGame");
     }
 
     void StartTimer()
     {
-        Debug.Log("Timer started");
+        // Debug.Log("Timer started");
         timerRunning = true;
         timer = endGameAfterFullTransitionTime;
     }
 
     void StopTimer()
     {
-        Debug.Log("Timer stopped");
+        // Debug.Log("Timer stopped");
         timerRunning = false;
     }
-
-    public void IncrementWater(float amount)
-    {
-        transition = Mathf.Clamp(transition - amount, transitionMin, transitionMax);
-    }
-
-    public void IncrementLand(float amount)
-    {
-        transition = Mathf.Clamp(transition + amount, transitionMin, transitionMax);
-    }
-
 
     public void IncrementWater()
     {
@@ -137,8 +146,6 @@ public class GameManager : MonoBehaviour
             StopTimer();
         }
     }
-
-
 
     public void IncrementLand()
     {
@@ -168,6 +175,9 @@ public class GameManager : MonoBehaviour
         return gameOver;
     }
 
+
+    // ---------- Legacy and Debug ------------
+
     public void ToggleMode()
     {
         if (transition != transitionMin)
@@ -178,5 +188,15 @@ public class GameManager : MonoBehaviour
         {
             transition = transitionMax;
         }
+    }
+
+    public void IncrementWater(float amount)
+    {
+        transition = Mathf.Clamp(transition - amount, transitionMin, transitionMax);
+    }
+
+    public void IncrementLand(float amount)
+    {
+        transition = Mathf.Clamp(transition + amount, transitionMin, transitionMax);
     }
 }
