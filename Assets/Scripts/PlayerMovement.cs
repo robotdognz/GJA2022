@@ -110,12 +110,12 @@ public class PlayerMovement : MonoBehaviour
         if (!myCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
         {
             isInWater = false;
-            // gameManager.IncrementLand();
+            gameManager.IncrementLand();
         }
         else
         {
             isInWater = true;
-            // gameManager.IncrementWater();
+            gameManager.IncrementWater();
         }
 
         onGround = myCollider.IsTouchingLayers(LayerMask.GetMask("Platforms"));
@@ -201,21 +201,6 @@ public class PlayerMovement : MonoBehaviour
             myRigidBody.velocity += new Vector2(0, currentWaterJumpPower);
             Debug.Log("Jump" + currentWaterJumpPower);
         }
-
-
-
-
-        //  // only jump when touching platforms or in water
-        // if (!myCollider.IsTouchingLayers(LayerMask.GetMask("Platforms", "Water")))
-        // {
-        //     return;
-        // }
-
-        // if (value.isPressed)
-        // {
-        //     Debug.Log("Jump");
-        //     myRigidBody.velocity += new Vector2(0, currentLandJumpPower);
-        // }
 
     }
 

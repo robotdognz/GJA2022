@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float endGameAfterFullTransitionTime = 2;
 
     // transition
-    float transition = 0;
+    float transition = 0.5f;
     float transitionMin = 0; // full water
     float transitionMax = 1; // full land
     bool gameOver = false;
@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
         // gameOver = true;
         // remove transition bar UI element
         // transitionBar.gameObject.SetActive(false);
+        Restart();
     }
 
     public void Restart()
@@ -103,43 +104,43 @@ public class GameManager : MonoBehaviour
     }
 
 
-    // public void IncrementWater()
-    // {
-    //     if (!timerRunning)
-    //     {
-    //         transition = Mathf.Clamp(transition - transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
-    //         if (transition <= transitionMin)
-    //         {
-    //             StartTimer();
-    //         }
-    //     }
-    //     else if (transition >= transitionMax)
-    //     {
-    //         // start incrementing transition again and stop timer
-    //         transition = Mathf.Clamp(transition - transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
-    //         StopTimer();
-    //     }
-    // }
+    public void IncrementWater()
+    {
+        if (!timerRunning)
+        {
+            transition = Mathf.Clamp(transition - transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
+            if (transition <= transitionMin)
+            {
+                StartTimer();
+            }
+        }
+        else if (transition >= transitionMax)
+        {
+            // start incrementing transition again and stop timer
+            transition = Mathf.Clamp(transition - transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
+            StopTimer();
+        }
+    }
 
     
 
-    // public void IncrementLand()
-    // {
-    //     if (!timerRunning)
-    //     {
-    //         transition = Mathf.Clamp(transition + transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
-    //         if (transition >= transitionMax)
-    //         {
-    //             StartTimer();
-    //         }
-    //     }
-    //     else if (transition <= transitionMin)
-    //     {
-    //         // start incrementing transition again and stop timer
-    //         transition = Mathf.Clamp(transition + transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
-    //         StopTimer();
-    //     }
-    // }
+    public void IncrementLand()
+    {
+        if (!timerRunning)
+        {
+            transition = Mathf.Clamp(transition + transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
+            if (transition >= transitionMax)
+            {
+                StartTimer();
+            }
+        }
+        else if (transition <= transitionMin)
+        {
+            // start incrementing transition again and stop timer
+            transition = Mathf.Clamp(transition + transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
+            StopTimer();
+        }
+    }
 
     public float GetTransitionLevel()
     {
