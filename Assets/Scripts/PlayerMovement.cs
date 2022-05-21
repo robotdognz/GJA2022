@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 moveInput;
     Rigidbody2D myRigidBody;
     Collider2D myCollider;
+    BoxCollider2D myFeetCollider;
     // BuoyancyEffector2D water;
     BuoyancyEffector2D[] waters;
 
@@ -47,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         // setup fields
         myRigidBody = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<CapsuleCollider2D>();
+        myFeetCollider = GetComponent<BoxCollider2D>();
         gameManager = FindObjectOfType<GameManager>();
         waters = FindObjectsOfType<BuoyancyEffector2D>();
     }
@@ -179,20 +181,20 @@ public class PlayerMovement : MonoBehaviour
     void OnJump(InputValue value)
     {
         // only jump when touching platforms or in water
-        if (myCollider.IsTouchingLayers(LayerMask.GetMask("Platforms")) && myCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
+        if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Platforms")) && myCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
         {
             // do most powerful jump
             float tempJumpPower = Mathf.Max(currentWaterJumpPower, currentLandJumpPower);
             myRigidBody.velocity += new Vector2(0, tempJumpPower);
             Debug.Log("Jump" + tempJumpPower);
         }
-        else if (myCollider.IsTouchingLayers(LayerMask.GetMask("Platforms")))
+        else if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Platforms")))
         {
             // do land jump
             myRigidBody.velocity += new Vector2(0, currentLandJumpPower);
             Debug.Log("Jump" + currentLandJumpPower);
         }
-        else if (myCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
+        else if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
         {
 
             // do water jump
