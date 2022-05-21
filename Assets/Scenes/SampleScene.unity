@@ -460,12 +460,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 364797baa0dd2964cb646f9fe3b857b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  landRunSpeed: 5
-  landJumpPower: 20
-  landGravity: 5
-  waterRunSpeed: 5
-  waterJumpPower: 20
-  waterGravity: -2
+  landRunSpeed: 10
+  landSwimSpeed: {x: 0, y: 5}
+  landJumpPower: 10
+  waterRunSpeed: 3
+  waterSwimSpeed: {x: 7, y: 7}
+  waterJumpPower: 5
 --- !u!1 &378396153
 GameObject:
   m_ObjectHideFlags: 0

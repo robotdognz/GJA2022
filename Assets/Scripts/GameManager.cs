@@ -66,11 +66,11 @@ public class GameManager : MonoBehaviour
 
     private void timerEnded()
     {
-        // end game
-        Debug.Log("Game Over");
-        gameOver = true;
-        // remove transition bar UI element
-        transitionBar.gameObject.SetActive(false);
+        // // end game
+        // Debug.Log("Game Over");
+        // gameOver = true;
+        // // remove transition bar UI element
+        // transitionBar.gameObject.SetActive(false);
     }
 
     void StartTimer()
