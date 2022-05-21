@@ -204,6 +204,22 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Water")
+        {
+            Debug.Log("Enter water sound effect");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Water")
+        {
+            Debug.Log("Exit water sound effect");
+        }
+    }
+
     void OnToggleMode(InputValue value)
     {
         gameManager.ToggleMode();
