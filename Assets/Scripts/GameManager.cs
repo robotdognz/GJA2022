@@ -11,11 +11,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] float transitionSpeed = 0.1f;
     [SerializeField] float endGameAfterFullTransitionTime = 2;
 
+    [SerializeField] Scene deathScene;
+
+    [SerializeField] SoundEffectManager soundManager;
+
     // transition
-    float transition = 0;
+    float transition = 0.5f;
     float transitionMin = 0; // full water
     float transitionMax = 1; // full land
     bool gameOver = false;
+    SpriteChanger spriteChanger;
 
     // end game timer
     float timer;
@@ -25,6 +30,9 @@ public class GameManager : MonoBehaviour
     Color fine = new Color(1, 1, 1);
     Color bad = new Color(1, 0, 0);
 
+    // debug
+    bool barRunning = true;
+
     void Start()
     {
         // setup transition UI element
@@ -32,16 +40,24 @@ public class GameManager : MonoBehaviour
         transitionBar.minValue = transitionMin;
         transitionBar.maxValue = transitionMax;
 
+        // player transition sprite
+        spriteChanger = FindObjectOfType<SpriteChanger>();
+
         // setup timer
         timer = endGameAfterFullTransitionTime;
+
+        Time.timeScale = 1;
     }
 
     void Update()
     {
         if (!gameOver)
         {
-            // transition
+            // transition bar
             transitionBar.value = transition;
+
+            // transition player sprite
+            spriteChanger.UpdateSprite(transition);
 
             // timer
             if (timerRunning)
@@ -51,6 +67,7 @@ public class GameManager : MonoBehaviour
                 if (timer <= 0.0f)
                 {
                     timerEnded();
+                    timerRunning = false;
                 }
 
                 transitionBar.gameObject.transform.Find("Background").GetComponent<Image>().color = bad;
@@ -72,29 +89,63 @@ public class GameManager : MonoBehaviour
         // gameOver = true;
         // remove transition bar UI element
         // transitionBar.gameObject.SetActive(false);
+        RestartGame();
     }
 
-    public void Restart()
+    public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        FindObjectOfType<SoundEffectManager>().GameOver();
+        if (transition < 0.5f)
+        {
+            // water creature
+            FindObjectOfType<GameOverScreen>().GameOverWater();
+        }
+        else
+        {
+            // land creature
+            FindObjectOfType<GameOverScreen>().GameOverLand();
+        }
+    }
+
+    public IEnumerator WinGame()
+    {
+        // fade out the background music before ending
+        float fadeOutTime = 1;
+        // StartCoroutine(FindObjectOfType<BackgroundMusic>().StartFadeOut(fadeOutTime));
+        yield return new WaitForSecondsRealtime(fadeOutTime);
+
+        // kill all the background music game objects
+        // BackgroundMusic[] backgroundMusics = FindObjectsOfType<BackgroundMusic>();
+        // foreach(BackgroundMusic bm in backgroundMusics)
+        // {
+        //     bm.GetComponent<AudioSource>().Stop();
+        //     Destroy(bm);
+        // }
+
+        // load end game scene
+        SceneManager.LoadScene("99_EndGame");
     }
 
     void StartTimer()
     {
-        Debug.Log("Timer started");
+        // Debug.Log("Timer started");
         timerRunning = true;
         timer = endGameAfterFullTransitionTime;
     }
 
     void StopTimer()
     {
-        Debug.Log("Timer stopped");
+        // Debug.Log("Timer stopped");
         timerRunning = false;
     }
 
-
     public void IncrementWater()
     {
+        if (!barRunning)
+        {
+            return;
+        }
+
         if (!timerRunning)
         {
             transition = Mathf.Clamp(transition - transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
@@ -113,6 +164,11 @@ public class GameManager : MonoBehaviour
 
     public void IncrementLand()
     {
+        if (!barRunning)
+        {
+            return;
+        }
+
         if (!timerRunning)
         {
             transition = Mathf.Clamp(transition + transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
@@ -137,5 +193,35 @@ public class GameManager : MonoBehaviour
     public bool IsGameOver()
     {
         return gameOver;
+    }
+
+
+    // ---------- Legacy and Debug ------------
+
+    public void ToggleMode()
+    {
+        if (transition != transitionMin)
+        {
+            transition = transitionMin;
+        }
+        else
+        {
+            transition = transitionMax;
+        }
+    }
+
+    public void ToggleTimer()
+    {
+        barRunning = !barRunning;
+    }
+
+    public void IncrementWater(float amount)
+    {
+        transition = Mathf.Clamp(transition - amount, transitionMin, transitionMax);
+    }
+
+    public void IncrementLand(float amount)
+    {
+        transition = Mathf.Clamp(transition + amount, transitionMin, transitionMax);
     }
 }
