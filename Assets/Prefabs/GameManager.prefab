@@ -2033,7 +2033,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2130,16 +2130,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1675a79cf76d16448a2e4f27acef56d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jump: []
-  jumpSource: {fileID: 0}
+  jump:
+  - {fileID: 8300000, guid: 1eab5f0ab416d124488450b5d9b12fe7, type: 3}
+  - {fileID: 8300000, guid: ba3b88ed012d18b44898135c22d62028, type: 3}
+  - {fileID: 8300000, guid: 9a9600f20dc84ec42a95e6c0c9d0f5a9, type: 3}
+  - {fileID: 8300000, guid: 41fe75f6a92f6194fa55cd5df2097dbf, type: 3}
+  jumpSource: {fileID: 562361614000794537}
   outOfWater:
   - {fileID: 8300000, guid: 0929f46de82c2d6408c12c128e592c06, type: 3}
   - {fileID: 8300000, guid: b1e31cbe7629eaa48828f349927dea57, type: 3}
   - {fileID: 8300000, guid: 448d2918707670942917d3b0ed1cb5f4, type: 3}
   - {fileID: 8300000, guid: 88fa7f7de2fbc684ca868f325bed666a, type: 3}
-  outOfWaterSource: {fileID: 0}
-  intoWater: []
-  intoWaterSource: {fileID: 0}
+  outOfWaterSource: {fileID: 562361613977419905}
+  intoWater:
+  - {fileID: 8300000, guid: dd8ad65cdf049334baa917870d913883, type: 3}
+  - {fileID: 8300000, guid: cd7d2e8e9a8d44b49b8e28650a3dd39b, type: 3}
+  intoWaterSource: {fileID: 562361615356758738}
+  normalAmbiance: {fileID: 8300000, guid: bc3183baee3d69b4f91204862a03d8e6, type: 3}
+  normalAmbianceSource: {fileID: 562361614051431825}
+  waterAmbiance: {fileID: 8300000, guid: 26d1686149546614a8572a03fc375857, type: 3}
+  waterAmbianceSource: {fileID: 562361615006383221}
   gameOver: {fileID: 8300000, guid: 84964b6ec3ca28c498a96d172e8629bd, type: 3}
 --- !u!1 &3703147882162153996
 GameObject:
@@ -2327,6 +2337,62 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3703147881327564009}
     m_Modifications:
+    - target: {fileID: 3381535966122486811, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381535966122486811, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381535966267349692, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381535966508874850, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381535966508874850, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381535966834430372, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381535967101161711, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381535967128075207, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381535967198416231, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381535967581881855, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381535967614281658, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381535967820041384, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381535967956227483, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381535968130374356, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3929909933695169938, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}
       propertyPath: m_Name
       value: Audio
@@ -2377,6 +2443,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}
+--- !u!82 &562361613977419905 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3381535967101161711, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}
+  m_PrefabInstance: {fileID: 2963449795428290670}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &562361614000794537 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3381535967128075207, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}
+  m_PrefabInstance: {fileID: 2963449795428290670}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &562361614051431825 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3381535967581881855, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}
+  m_PrefabInstance: {fileID: 2963449795428290670}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &562361615006383221 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3381535966122486811, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}
+  m_PrefabInstance: {fileID: 2963449795428290670}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &562361615356758738 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3381535966267349692, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}
+  m_PrefabInstance: {fileID: 2963449795428290670}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6951897407851659779 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5285625345725174381, guid: b4938f588123b9c46a23d3fb38ed7f27, type: 3}

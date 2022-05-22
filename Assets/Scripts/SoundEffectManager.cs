@@ -20,6 +20,10 @@ public class SoundEffectManager : MonoBehaviour
     [SerializeField] AudioSource intoWaterSource;
 
     [Header("Other")]
+    [Header("Normal Ambiance")]
+    [SerializeField] AudioClip normalAmbiance;
+    [SerializeField] AudioSource normalAmbianceSource;
+
     [Header("Water Ambiance")]
     [SerializeField] AudioClip waterAmbiance;
     [SerializeField] AudioSource waterAmbianceSource;
@@ -74,6 +78,17 @@ public class SoundEffectManager : MonoBehaviour
     public void StopWaterAmbiance()
     {
         waterAmbianceSource.Stop();
+    }
+
+    public void StartNormalAmbiance()
+    {
+        normalAmbianceSource.clip = normalAmbiance;
+        normalAmbianceSource.Play();
+    }
+
+    public void StopNormalAmbiance()
+    {
+        normalAmbianceSource.Stop();
     }
 
     public void GameOver()

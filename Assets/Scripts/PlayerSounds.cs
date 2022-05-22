@@ -15,6 +15,7 @@ public class PlayerSounds : MonoBehaviour
             Debug.Log("Enter water sound effect");
             soundManager.IntoWater();
             soundManager.StartWaterAmbiance();
+            soundManager.StopNormalAmbiance();
         }
     }
 
@@ -25,6 +26,7 @@ public class PlayerSounds : MonoBehaviour
             Debug.Log("Exit water sound effect");
             soundManager.OutOfWater();
             soundManager.StopWaterAmbiance();
+            soundManager.StartNormalAmbiance();
         }
     }
 
