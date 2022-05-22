@@ -246,17 +246,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   landCreature_RunSpeed: 15
-  landCreature_SwimSpeed: {x: 0.01, y: 0.2}
+  landCreature_SwimSpeed: {x: 0.13, y: 2.3}
   landCreature_landJumpPower: 22
   landCreature_waterJumpPower: 0
   landCreatureBuoyancy: 2
   waterCreature_RunSpeed: 3
-  waterCreature_SwimSpeed: {x: 0.3, y: 0.3}
+  waterCreature_SwimSpeed: {x: 4, y: 4}
   waterCreature_landJumpPower: 5
   waterCreature_waterJumpPower: 14
   waterCreatureBuoyancy: 0
-  movementIncrease: 0.2
-  movementSlow: 0.98
+  movementIncrease: 2.3
+  movementSlow: 0.9
 --- !u!1 &2058033285111863633
 GameObject:
   m_ObjectHideFlags: 0
