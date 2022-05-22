@@ -116271,11 +116271,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2058033284957226326, guid: 895dc089d1b2c67498df500201b83c2d, type: 3}
       propertyPath: movementIncrease
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2058033284957226326, guid: 895dc089d1b2c67498df500201b83c2d, type: 3}
       propertyPath: waterCreatureBuoyancy
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058033284957226326, guid: 895dc089d1b2c67498df500201b83c2d, type: 3}
+      propertyPath: landCreature_SwimSpeed.x
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058033284957226326, guid: 895dc089d1b2c67498df500201b83c2d, type: 3}
+      propertyPath: landCreature_SwimSpeed.y
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 2058033284957226326, guid: 895dc089d1b2c67498df500201b83c2d, type: 3}
       propertyPath: waterCreature_SwimSpeed.x
