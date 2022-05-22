@@ -43,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
     // game management
     GameManager gameManager;
 
+    PlayerSounds playerSounds;
+
     void Start()
     {
         // setup fields
@@ -51,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
         myFeetCollider = GetComponentInChildren<BoxCollider2D>();
         gameManager = FindObjectOfType<GameManager>();
         waters = FindObjectsOfType<BuoyancyEffector2D>();
+
+        playerSounds = GetComponentInChildren<PlayerSounds>();
     }
 
     void FixedUpdate()
@@ -186,12 +190,14 @@ public class PlayerMovement : MonoBehaviour
             // do most powerful jump
             float tempJumpPower = Mathf.Max(currentWaterJumpPower, currentLandJumpPower);
             myRigidBody.velocity += new Vector2(0, tempJumpPower);
+            playerSounds.Jump();
             // Debug.Log("Jump" + tempJumpPower);
         }
         else if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Platforms")))
         {
             // do land jump
             myRigidBody.velocity += new Vector2(0, currentLandJumpPower);
+            playerSounds.Jump();
             // Debug.Log("Jump" + currentLandJumpPower);
         }
         else if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
@@ -199,6 +205,7 @@ public class PlayerMovement : MonoBehaviour
 
             // do water jump
             myRigidBody.velocity += new Vector2(0, currentWaterJumpPower);
+            playerSounds.Jump();
             // Debug.Log("Jump" + currentWaterJumpPower);
         }
 

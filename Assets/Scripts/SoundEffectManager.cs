@@ -4,14 +4,38 @@ using UnityEngine;
 
 public class SoundEffectManager : MonoBehaviour
 {
-    AudioSource player;
+    AudioSource defaultSource;
+
+    [Header("Jump")]
+    [SerializeField] AudioClip[] jump;
+    [SerializeField] AudioSource jumpSource;
+
+    [Header("Out of water")]
     [SerializeField] AudioClip[] outOfWater;
+    [SerializeField] AudioSource outOfWaterSource;
+
+    [Header("Into water")]
     [SerializeField] AudioClip[] intoWater;
+    [SerializeField] AudioSource intoWaterSource;
+
+
+    [Header("Game Over")]
     [SerializeField] AudioClip gameOver;
 
     private void Start()
     {
-        player = GetComponent<AudioSource>();
+        defaultSource = GetComponent<AudioSource>();
+    }
+
+    public void Jump()
+    {
+        if (jump.Length == 0)
+        {
+            return;
+        }
+
+        jumpSource.clip = jump[Random.Range(0, jump.Length)];
+        jumpSource.Play();
     }
 
     public void OutOfWater()
@@ -21,8 +45,8 @@ public class SoundEffectManager : MonoBehaviour
             return;
         }
 
-        player.clip = outOfWater[Random.Range(0, outOfWater.Length)];
-        player.Play();
+        outOfWaterSource.clip = outOfWater[Random.Range(0, outOfWater.Length)];
+        outOfWaterSource.Play();
     }
 
     public void IntoWater()
@@ -32,13 +56,13 @@ public class SoundEffectManager : MonoBehaviour
             return;
         }
 
-        player.clip = intoWater[Random.Range(0, intoWater.Length)];
-        player.Play();
+        intoWaterSource.clip = intoWater[Random.Range(0, intoWater.Length)];
+        intoWaterSource.Play();
     }
 
     public void GameOver()
     {
-        player.clip = gameOver;
-        player.Play();
+        defaultSource.clip = gameOver;
+        defaultSource.Play();
     }
 }
