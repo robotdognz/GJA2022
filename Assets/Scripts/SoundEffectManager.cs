@@ -28,6 +28,12 @@ public class SoundEffectManager : MonoBehaviour
     [SerializeField] AudioClip waterAmbiance;
     [SerializeField] AudioSource waterAmbianceSource;
 
+    [Header("UI")]
+
+    [Header("TransitionWarning")]
+    [SerializeField] AudioClip warning;
+    [SerializeField] AudioSource warningSource;
+
     [Header("Game Over")]
     [SerializeField] AudioClip gameOver;
 
@@ -67,6 +73,12 @@ public class SoundEffectManager : MonoBehaviour
 
         intoWaterSource.clip = intoWater[Random.Range(0, intoWater.Length)];
         intoWaterSource.Play();
+    }
+
+    public void Warning()
+    {
+        warningSource.clip = warning;
+        warningSource.Play();
     }
 
     public void StartWaterAmbiance()

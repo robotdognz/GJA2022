@@ -1225,6 +1225,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!82 &144612138 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 562361614556084180, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
+  m_PrefabInstance: {fileID: 3703147881705294098}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &167287396
 GameObject:
   m_ObjectHideFlags: 0
@@ -116349,6 +116354,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3703147882156168133, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
+      propertyPath: warning
+      value: 
+      objectReference: {fileID: 8300000, guid: 1eac2e4fed97adf4d8c7a7d2888e479f, type: 3}
+    - target: {fileID: 3703147882156168133, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
+      propertyPath: warningSource
+      value: 
+      objectReference: {fileID: 144612138}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
 --- !u!1001 &4094282413240256757

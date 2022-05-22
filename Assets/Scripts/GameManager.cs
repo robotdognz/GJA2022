@@ -131,6 +131,9 @@ public class GameManager : MonoBehaviour
         // Debug.Log("Timer started");
         timerRunning = true;
         timer = endGameAfterFullTransitionTime;
+
+        //-----------------------------------------------------------------------------------------------------------
+        soundManager.Warning();
     }
 
     void StopTimer()
