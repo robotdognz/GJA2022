@@ -116267,15 +116267,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2058033284957226326, guid: 895dc089d1b2c67498df500201b83c2d, type: 3}
       propertyPath: waterCreatureBuoyancy
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2058033284957226326, guid: 895dc089d1b2c67498df500201b83c2d, type: 3}
       propertyPath: waterCreature_SwimSpeed.x
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2058033284957226326, guid: 895dc089d1b2c67498df500201b83c2d, type: 3}
       propertyPath: waterCreature_SwimSpeed.y
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 895dc089d1b2c67498df500201b83c2d, type: 3}
