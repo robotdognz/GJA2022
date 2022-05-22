@@ -9,21 +9,10 @@ public class LevelEnd : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            // load end game scene, last scene in build
-            // SceneManager.LoadScene(SceneManager.sceneCount - 1);
-
-            // SceneManager.LoadScene("99_EndGame");
 
             GameManager manager = FindObjectOfType<GameManager>();
 
             StartCoroutine(manager.WinGame());
         }
     }
-
-    // IEnumerator WinGame()
-    // {
-    //     yield return new WaitForSecondsRealtime(1);
-        
-    //     SceneManager.LoadScene("99_EndGame");
-    // }
 }

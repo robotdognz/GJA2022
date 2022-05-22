@@ -31,6 +31,7 @@ public class BackgroundMusic : MonoBehaviour
 
     public IEnumerator StartFadeOut(float duration)
     {
+        Debug.Log("Fade Music");
         float currentTime = 0;
         float start = music.volume;
         while (currentTime < duration)
@@ -39,6 +40,7 @@ public class BackgroundMusic : MonoBehaviour
             music.volume = Mathf.Lerp(start, 0, currentTime / duration);
             yield return null;
         }
+        Destroy(gameObject);
         yield break;
     }
 }

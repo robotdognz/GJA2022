@@ -1151,12 +1151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b31f34001486c441848949e194babe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outOfWater:
-  - {fileID: 8300000, guid: 0929f46de82c2d6408c12c128e592c06, type: 3}
-  - {fileID: 8300000, guid: b1e31cbe7629eaa48828f349927dea57, type: 3}
-  - {fileID: 8300000, guid: 448d2918707670942917d3b0ed1cb5f4, type: 3}
-  - {fileID: 8300000, guid: 88fa7f7de2fbc684ca868f325bed666a, type: 3}
-  intoWater: []
+  soundManager: {fileID: 627071703}
 --- !u!82 &516588916
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1599,6 +1594,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b1e31cbe7629eaa48828f349927dea57, type: 3}
   - {fileID: 8300000, guid: 448d2918707670942917d3b0ed1cb5f4, type: 3}
   - {fileID: 8300000, guid: 88fa7f7de2fbc684ca868f325bed666a, type: 3}
+  intoWater: []
+  gameOver: {fileID: 8300000, guid: 84964b6ec3ca28c498a96d172e8629bd, type: 3}
 --- !u!82 &627071704
 AudioSource:
   m_ObjectHideFlags: 0
@@ -29373,7 +29370,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120258973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.2, y: 19.4, z: 0}
+  m_LocalPosition: {x: 8.09, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

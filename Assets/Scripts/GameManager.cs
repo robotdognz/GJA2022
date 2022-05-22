@@ -81,19 +81,15 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
         if (transition < 0.5f)
         {
             // water creature
             FindObjectOfType<GameOverScreen>().GameOverWater();
-            // Destroy(FindObjectOfType<BackgroundMusic>());
         }
         else
         {
             // land creature
             FindObjectOfType<GameOverScreen>().GameOverLand();
-            // Destroy(FindObjectOfType<BackgroundMusic>());
         }
     }
 
@@ -101,16 +97,16 @@ public class GameManager : MonoBehaviour
     {
         // fade out the background music before ending
         float fadeOutTime = 1;
-        StartCoroutine(FindObjectOfType<BackgroundMusic>().StartFadeOut(fadeOutTime));
+        // StartCoroutine(FindObjectOfType<BackgroundMusic>().StartFadeOut(fadeOutTime));
         yield return new WaitForSecondsRealtime(fadeOutTime);
 
         // kill all the background music game objects
-        BackgroundMusic[] backgroundMusics = FindObjectsOfType<BackgroundMusic>();
-        foreach(BackgroundMusic bm in backgroundMusics)
-        {
-            bm.GetComponent<AudioSource>().Stop();
-            Destroy(bm);
-        }
+        // BackgroundMusic[] backgroundMusics = FindObjectsOfType<BackgroundMusic>();
+        // foreach(BackgroundMusic bm in backgroundMusics)
+        // {
+        //     bm.GetComponent<AudioSource>().Stop();
+        //     Destroy(bm);
+        // }
 
         // load end game scene
         SceneManager.LoadScene("99_EndGame");

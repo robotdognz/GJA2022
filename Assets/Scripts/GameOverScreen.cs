@@ -6,38 +6,36 @@ using TMPro;
 
 public class GameOverScreen : MonoBehaviour
 {
-    // public static bool gamePaused = false;
-
     public GameObject pauseMenuUI;
-
     [SerializeField] TextMeshProUGUI deathText;
 
-    // void Update()
-    // {
-    //     if(gamePaused)
-    //     {
-
-    //     }
-
-
-    // }
 
     public void TryAgain()
     {
-        // Debug.Log("Try Again");
-        // gamePaused = false;
         Time.timeScale = 1f;
         Debug.Log(Time.timeScale);
-        // FindObjectOfType<GameManager>().Restart();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void MainMenu()
     {
-        // gamePaused = false;
         Time.timeScale = 1;
+        // float fadeOutTime = 1;
+        // StartCoroutine(FindObjectOfType<BackgroundMusic>().StartFadeOut(fadeOutTime));
+        // StartCoroutine(BackToMainMenu());
         SceneManager.LoadScene(0);
     }
+
+    // IEnumerator BackToMainMenu()
+    // {
+    //     Time.timeScale = 1;
+    //     float fadeOutTime = 1;
+    //     StartCoroutine(FindObjectOfType<BackgroundMusic>().StartFadeOut(fadeOutTime));
+
+    //     yield return new WaitForSecondsRealtime(fadeOutTime);
+
+    //     SceneManager.LoadScene(0);
+    // }
 
     public void GameOverWater()
     {

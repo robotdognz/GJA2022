@@ -4,25 +4,27 @@ using UnityEngine;
 
 public class PlayerSounds : MonoBehaviour
 {
-    AudioSource player;
-    [SerializeField] AudioClip[] outOfWater;
-    [SerializeField] AudioClip[] intoWater;
+    // AudioSource player;
+    // [SerializeField] AudioClip[] outOfWater;
+    // [SerializeField] AudioClip[] intoWater;
 
-    private void Start() {
-        player = GetComponent<AudioSource>();
-    }
+    // private void Start() {
+    //     player = GetComponent<AudioSource>();
+    // }
 
-    public void OutOfWater()
-    {
-         player.clip = outOfWater[Random.Range(0, outOfWater.Length)];
-         player.Play ();
-    }
+    // public void OutOfWater()
+    // {
+    //      player.clip = outOfWater[Random.Range(0, outOfWater.Length)];
+    //      player.Play ();
+    // }
 
-    public void IntoWater()
-    {
-         player.clip = intoWater[Random.Range(0, intoWater.Length)];
-         player.Play ();
-    }
+    // public void IntoWater()
+    // {
+    //      player.clip = intoWater[Random.Range(0, intoWater.Length)];
+    //      player.Play ();
+    // }
+
+    [SerializeField] SoundEffectManager soundManager;
 
     
     private void OnTriggerEnter2D(Collider2D other)
@@ -30,6 +32,7 @@ public class PlayerSounds : MonoBehaviour
         if (other.tag == "Water")
         {
             Debug.Log("Enter water sound effect");
+            soundManager.IntoWater();
         }
     }
 
@@ -38,7 +41,7 @@ public class PlayerSounds : MonoBehaviour
         if (other.tag == "Water")
         {
             Debug.Log("Exit water sound effect");
-            OutOfWater();
+            soundManager.OutOfWater();
         }
     }
 }
