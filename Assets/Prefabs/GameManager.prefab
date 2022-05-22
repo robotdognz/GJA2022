@@ -2130,12 +2130,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1675a79cf76d16448a2e4f27acef56d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jump: []
+  jumpSource: {fileID: 0}
   outOfWater:
   - {fileID: 8300000, guid: 0929f46de82c2d6408c12c128e592c06, type: 3}
   - {fileID: 8300000, guid: b1e31cbe7629eaa48828f349927dea57, type: 3}
   - {fileID: 8300000, guid: 448d2918707670942917d3b0ed1cb5f4, type: 3}
   - {fileID: 8300000, guid: 88fa7f7de2fbc684ca868f325bed666a, type: 3}
+  outOfWaterSource: {fileID: 0}
   intoWater: []
+  intoWaterSource: {fileID: 0}
   gameOver: {fileID: 8300000, guid: 84964b6ec3ca28c498a96d172e8629bd, type: 3}
 --- !u!1 &3703147882162153996
 GameObject:

@@ -1225,6 +1225,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!82 &137944254 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 562361615006383221, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
+  m_PrefabInstance: {fileID: 3703147881705294098}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &167287396
 GameObject:
   m_ObjectHideFlags: 0
@@ -116317,6 +116322,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 562361614051431825, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 562361614051431825, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
@@ -116337,8 +116346,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 562361615006383221, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 562361615006383221, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 562361615123672076, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
+      propertyPath: Loop
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 562361615123672076, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: m_PlayOnAwake
@@ -116417,6 +116434,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1765459050}
     - target: {fileID: 3703147882156168133, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
+      propertyPath: waterAmbiance
+      value: 
+      objectReference: {fileID: 8300000, guid: 26d1686149546614a8572a03fc375857, type: 3}
+    - target: {fileID: 3703147882156168133, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: intoWaterSource
       value: 
       objectReference: {fileID: 358350577}
@@ -116444,6 +116465,10 @@ PrefabInstance:
       propertyPath: jump.Array.data[3]
       value: 
       objectReference: {fileID: 8300000, guid: 41fe75f6a92f6194fa55cd5df2097dbf, type: 3}
+    - target: {fileID: 3703147882156168133, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
+      propertyPath: waterAmbianceSource
+      value: 
+      objectReference: {fileID: 137944254}
     - target: {fileID: 3703147882156168133, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: intoWater.Array.size
       value: 2
