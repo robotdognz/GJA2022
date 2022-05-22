@@ -114443,6 +114443,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!82 &1765459050 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 562361614000794537, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
+  m_PrefabInstance: {fileID: 3703147881705294098}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1826830621
 GameObject:
   m_ObjectHideFlags: 0
@@ -116408,13 +116413,37 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3703147882156168133, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
+      propertyPath: jumpSource
+      value: 
+      objectReference: {fileID: 1765459050}
+    - target: {fileID: 3703147882156168133, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: intoWaterSource
       value: 
       objectReference: {fileID: 358350577}
     - target: {fileID: 3703147882156168133, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
+      propertyPath: jump.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703147882156168133, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: outOfWaterSource
       value: 
       objectReference: {fileID: 1979586833}
+    - target: {fileID: 3703147882156168133, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
+      propertyPath: jump.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1eab5f0ab416d124488450b5d9b12fe7, type: 3}
+    - target: {fileID: 3703147882156168133, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
+      propertyPath: jump.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: ba3b88ed012d18b44898135c22d62028, type: 3}
+    - target: {fileID: 3703147882156168133, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
+      propertyPath: jump.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a9600f20dc84ec42a95e6c0c9d0f5a9, type: 3}
+    - target: {fileID: 3703147882156168133, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
+      propertyPath: jump.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 41fe75f6a92f6194fa55cd5df2097dbf, type: 3}
     - target: {fileID: 3703147882156168133, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: intoWater.Array.size
       value: 2

@@ -5,6 +5,11 @@ using UnityEngine;
 public class SoundEffectManager : MonoBehaviour
 {
     AudioSource defaultSource;
+
+    [Header("Jump")]
+    [SerializeField] AudioClip[] jump;
+    [SerializeField] AudioSource jumpSource;
+
     [Header("Out of water")]
     [SerializeField] AudioClip[] outOfWater;
     [SerializeField] AudioSource outOfWaterSource;
@@ -20,6 +25,17 @@ public class SoundEffectManager : MonoBehaviour
     private void Start()
     {
         defaultSource = GetComponent<AudioSource>();
+    }
+
+    public void Jump()
+    {
+        if (jump.Length == 0)
+        {
+            return;
+        }
+
+        jumpSource.clip = jump[Random.Range(0, jump.Length)];
+        jumpSource.Play();
     }
 
     public void OutOfWater()

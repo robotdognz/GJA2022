@@ -44,4 +44,9 @@ public class PlayerSounds : MonoBehaviour
             soundManager.OutOfWater();
         }
     }
+
+    public void Jump()
+    {
+        soundManager.Jump();
+    }
 }
