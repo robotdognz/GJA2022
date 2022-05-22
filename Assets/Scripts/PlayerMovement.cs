@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         waters = FindObjectsOfType<BuoyancyEffector2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         UpdateTerranType();
         UpdateMovementSkill();
