@@ -1020,6 +1020,7 @@ MonoBehaviour:
   endGameAfterFullTransitionTime: 1
   deathScene:
     m_Handle: 0
+  soundManager: {fileID: 627071703}
 --- !u!4 &378396155
 Transform:
   m_ObjectHideFlags: 0
@@ -28479,7 +28480,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c63172782b4362843ae4c7199c30a2d7, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.18
   m_Pitch: 1
   Loop: 1
   Mute: 0

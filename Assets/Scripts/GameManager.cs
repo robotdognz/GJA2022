@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Scene deathScene;
 
+    [SerializeField] SoundEffectManager soundManager;
+
     // transition
     float transition = 0.5f;
     float transitionMin = 0; // full water
@@ -55,6 +57,7 @@ public class GameManager : MonoBehaviour
                 if (timer <= 0.0f)
                 {
                     timerEnded();
+                    timerRunning = false;
                 }
 
                 transitionBar.gameObject.transform.Find("Background").GetComponent<Image>().color = bad;
@@ -81,6 +84,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        FindObjectOfType<SoundEffectManager>().GameOver();
         if (transition < 0.5f)
         {
             // water creature
