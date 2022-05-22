@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2058033284850793867}
   - component: {fileID: 2058033284850793866}
+  - component: {fileID: 1317523407375736918}
   m_Layer: 0
-  m_Name: AmphibiousDrawingsV1LandTeal
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,17 +74,34 @@ SpriteRenderer:
   m_SortingLayerID: 538526685
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 30afc1f27d34f714da0aa50d479df6e4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b7722255d7580714e910dff51dcbc748, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.72, y: 1.0233333}
+  m_Size: {x: 2, y: 0.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1317523407375736918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058033284850793864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81e520409e09b2340a69128db009ba5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: f41f32c04583c554e94fcc90bd7e98ed, type: 3}
+  - {fileID: 21300000, guid: ddfe7e5b0e5b0b747b157027684db5a5, type: 3}
+  - {fileID: 21300000, guid: b900d778b509baa4dab6604b748bb41c, type: 3}
+  - {fileID: 21300000, guid: b7722255d7580714e910dff51dcbc748, type: 3}
 --- !u!1 &2058033284957226320
 GameObject:
   m_ObjectHideFlags: 0

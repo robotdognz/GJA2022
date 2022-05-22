@@ -27838,22 +27838,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3703147880393353361, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 75.56382
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703147880393353361, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 76.15221
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703147880393353361, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703147880393353361, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.43
-      objectReference: {fileID: 0}
+    - target: {fileID: 2901513342185352589, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f41f32c04583c554e94fcc90bd7e98ed, type: 3}
     - target: {fileID: 3703147880981074712, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -27862,10 +27850,6 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 335616373}
-    - target: {fileID: 3703147881124090031, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3703147881327564009, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -27914,20 +27898,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 3703147881907065183, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3703147882144573803, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703147882162154034, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703147882162154035, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
-      propertyPath: m_PixelPerfect
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

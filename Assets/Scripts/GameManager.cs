@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     float transitionMin = 0; // full water
     float transitionMax = 1; // full land
     bool gameOver = false;
+    SpriteChanger spriteChanger;
 
     // end game timer
     float timer;
@@ -36,6 +37,9 @@ public class GameManager : MonoBehaviour
         transitionBar.minValue = transitionMin;
         transitionBar.maxValue = transitionMax;
 
+        // player transition sprite
+        spriteChanger = FindObjectOfType<SpriteChanger>();
+
         // setup timer
         timer = endGameAfterFullTransitionTime;
 
@@ -46,8 +50,11 @@ public class GameManager : MonoBehaviour
     {
         if (!gameOver)
         {
-            // transition
+            // transition bar
             transitionBar.value = transition;
+
+            // transition player sprite
+            spriteChanger.UpdateSprite(transition);
 
             // timer
             if (timerRunning)
