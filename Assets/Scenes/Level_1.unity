@@ -339,8 +339,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -974,8 +974,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -1441,8 +1441,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -1692,8 +1692,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -1823,8 +1823,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -2167,8 +2167,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -2298,8 +2298,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -3022,8 +3022,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -4626,8 +4626,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -5188,8 +5188,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -5620,8 +5620,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -5919,8 +5919,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -6386,8 +6386,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -6853,8 +6853,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -7463,8 +7463,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -8098,8 +8098,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -8565,8 +8565,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -9189,8 +9189,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -112299,8 +112299,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -112430,8 +112430,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -112645,8 +112645,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -113112,8 +113112,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -113663,8 +113663,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -114187,8 +114187,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -115033,8 +115033,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -115240,8 +115240,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -115791,8 +115791,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.5
   m_Density: 2
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -116163,6 +116163,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 955333399}
     m_Modifications:
+    - target: {fileID: 1004740875926607474, guid: dec93cff3dcce074b80feaf353d413de, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004740875926607474, guid: dec93cff3dcce074b80feaf353d413de, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1004740875926607476, guid: dec93cff3dcce074b80feaf353d413de, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -116267,6 +116275,14 @@ PrefabInstance:
     - target: {fileID: 2058033284957226324, guid: 895dc089d1b2c67498df500201b83c2d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058033284957226326, guid: 895dc089d1b2c67498df500201b83c2d, type: 3}
+      propertyPath: waterCreatureBuoyancy
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058033284957226326, guid: 895dc089d1b2c67498df500201b83c2d, type: 3}
+      propertyPath: waterCreature_SwimSpeed.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2058033285111863634, guid: 895dc089d1b2c67498df500201b83c2d, type: 3}
       propertyPath: soundManager

@@ -209,4 +209,9 @@ public class PlayerMovement : MonoBehaviour
     {
         gameManager.ToggleMode();
     }
+
+    void OnToggleTimer(InputValue value)
+    {
+        gameManager.ToggleTimer();
+    }
 }

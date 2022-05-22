@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour
     Color fine = new Color(1, 1, 1);
     Color bad = new Color(1, 0, 0);
 
+    // debug
+    bool barRunning = true;
+
     void Start()
     {
         // setup transition UI element
@@ -138,6 +141,11 @@ public class GameManager : MonoBehaviour
 
     public void IncrementWater()
     {
+        if (!barRunning)
+        {
+            return;
+        }
+
         if (!timerRunning)
         {
             transition = Mathf.Clamp(transition - transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
@@ -156,6 +164,11 @@ public class GameManager : MonoBehaviour
 
     public void IncrementLand()
     {
+        if (!barRunning)
+        {
+            return;
+        }
+
         if (!timerRunning)
         {
             transition = Mathf.Clamp(transition + transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
@@ -195,6 +208,11 @@ public class GameManager : MonoBehaviour
         {
             transition = transitionMax;
         }
+    }
+
+    public void ToggleTimer()
+    {
+        barRunning = !barRunning;
     }
 
     public void IncrementWater(float amount)
