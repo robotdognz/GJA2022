@@ -6,6 +6,7 @@ public class SoundEffectManager : MonoBehaviour
 {
     AudioSource defaultSource;
 
+    [Header("Player")]
     [Header("Jump")]
     [SerializeField] AudioClip[] jump;
     [SerializeField] AudioSource jumpSource;
@@ -18,6 +19,10 @@ public class SoundEffectManager : MonoBehaviour
     [SerializeField] AudioClip[] intoWater;
     [SerializeField] AudioSource intoWaterSource;
 
+    [Header("Other")]
+    [Header("Water Ambiance")]
+    [SerializeField] AudioClip waterAmbiance;
+    [SerializeField] AudioSource waterAmbianceSource;
 
     [Header("Game Over")]
     [SerializeField] AudioClip gameOver;
@@ -58,6 +63,17 @@ public class SoundEffectManager : MonoBehaviour
 
         intoWaterSource.clip = intoWater[Random.Range(0, intoWater.Length)];
         intoWaterSource.Play();
+    }
+
+    public void StartWaterAmbiance()
+    {
+        waterAmbianceSource.clip = waterAmbiance;
+        waterAmbianceSource.Play();
+    }
+
+    public void StopWaterAmbiance()
+    {
+        waterAmbianceSource.Stop();
     }
 
     public void GameOver()
