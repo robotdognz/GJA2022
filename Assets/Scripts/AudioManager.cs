@@ -57,7 +57,45 @@ public class AudioManager : MonoBehaviour
 
     // --------- Music -----------------
 
-    // TODO
+    public void StartMenuMusic()
+    {
+        StartCoroutine(PlayMusic(menuMusicClip, menuMusicVolume, 0.5f));
+    }
+
+    public void StartGameMusic()
+    {
+        StartCoroutine(PlayMusic(gameMusicClip, gameMusicVolume, 0.5f));
+    }
+
+    public IEnumerator PlayMusic(AudioClip clip, float volume, float fadeDuration)
+    {
+        if (!music.isPlaying)
+        {
+            music.clip = clip;
+            music.volume = volume;
+            music.Play();
+        }
+        else
+        {
+            // fade out old music
+            Debug.Log("Fade Music");
+            float currentTime = 0;
+            float start = music.volume;
+            while (currentTime < fadeDuration)
+            {
+                currentTime += Time.deltaTime;
+                music.volume = Mathf.Lerp(start, 0, currentTime / fadeDuration);
+                yield return null;
+            }
+
+            // play new music
+            music.clip = clip;
+            music.volume = volume;
+            music.Play();
+
+            yield break;
+        }
+    }
 
 
     // --------- Player -----------------
