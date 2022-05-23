@@ -192,7 +192,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayUIHoverClip()
     {
-        PlayClipWithSource(UIHoverClips, UIHoverVolume, UISource);
+        PlayClipAtPoint(UIHoverClips, UIHoverVolume);
     }
 
     // ----------- Helper ----------------

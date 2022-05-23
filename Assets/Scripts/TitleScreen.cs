@@ -49,6 +49,7 @@ public class TitleScreen : MonoBehaviour
         {
             audioManager.StartGameMusic();
             audioManager.StartNormalAmbiance();
+            audioManager.PlayUIClickClip();
         }
 
         // load next level
@@ -57,7 +58,13 @@ public class TitleScreen : MonoBehaviour
 
     public void QuitGame()
     {
+        audioManager.PlayUIClickClip();
         Debug.Log("Quit Game");
         Application.Quit();
+    }
+
+    public void PointerEnter()
+    {
+        audioManager.PlayUIHoverClip();
     }
 }
