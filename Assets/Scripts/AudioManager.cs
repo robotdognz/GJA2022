@@ -130,6 +130,11 @@ public class AudioManager : MonoBehaviour
         PlayClipWithSource(outOfWaterClips, outOfWaterVolume, outOfWaterSource);
     }
 
+    public bool FootstepsActive()
+    {
+        return footsteps.isPlaying;
+    }
+
     public void StartFootsteps()
     {
         footsteps.clip = footstepsClip;

@@ -156,10 +156,24 @@ public class PlayerMovement : MonoBehaviour
                         xMovement = Mathf.Max(myRigidBody.velocity.x - movementIncrease, -currentRunSpeed);
                     }
                 }
+
+                if (onGround && !playerSounds.audioManager.FootstepsActive())
+                {
+                    // play walking sound if it isn't already playing
+                    playerSounds.audioManager.StartFootsteps();
+                }
             }
             else if (onGround)
             {
                 xMovement = myRigidBody.velocity.x * movementSlow;
+
+                // stop walking sound
+                playerSounds.audioManager.StopFootsteps();
+            }
+            else
+            {
+                // stop walking sound
+                playerSounds.audioManager.StopFootsteps();
             }
 
         }
@@ -168,6 +182,9 @@ public class PlayerMovement : MonoBehaviour
             // do water movement
             xMovement = myRigidBody.velocity.x + moveInput.x * currentSwimSpeed.x;
             yMovement = myRigidBody.velocity.y + moveInput.y * currentSwimSpeed.y;
+
+            // stop walking sound
+            playerSounds.audioManager.StopFootsteps();
         }
 
         // apply the movement
@@ -190,23 +207,23 @@ public class PlayerMovement : MonoBehaviour
             // do most powerful jump
             float tempJumpPower = Mathf.Max(currentWaterJumpPower, currentLandJumpPower);
             myRigidBody.velocity += new Vector2(0, tempJumpPower);
-            playerSounds.Jump();
-            // Debug.Log("Jump" + tempJumpPower);
+            // playerSounds.Jump();
+            playerSounds.audioManager.PlayJumpClip();
         }
         else if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Platforms")))
         {
             // do land jump
             myRigidBody.velocity += new Vector2(0, currentLandJumpPower);
-            playerSounds.Jump();
-            // Debug.Log("Jump" + currentLandJumpPower);
+            // playerSounds.Jump();
+            playerSounds.audioManager.PlayJumpClip();
         }
         else if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
         {
 
             // do water jump
             myRigidBody.velocity += new Vector2(0, currentWaterJumpPower);
-            playerSounds.Jump();
-            // Debug.Log("Jump" + currentWaterJumpPower);
+            // playerSounds.Jump();
+            playerSounds.audioManager.PlayJumpClip();
         }
 
     }

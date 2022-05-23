@@ -109,6 +109,8 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         audioManager.PlayGameOverClip();
+        audioManager.StopFootsteps();
+        
         if (transition < 0.5f)
         {
             // water creature

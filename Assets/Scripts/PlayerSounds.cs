@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSounds : MonoBehaviour
 {
 
-    AudioManager soundManager;
+    public AudioManager audioManager;
 
     private void Start()
     {
@@ -20,12 +20,12 @@ public class PlayerSounds : MonoBehaviour
                     continue;
                 }
 
-                soundManager = manager;
+                audioManager = manager;
             }
         }
         else if(audioManagers.Length == 1)
         {
-            soundManager = audioManagers[0];
+            audioManager = audioManagers[0];
         }
     }
     
@@ -34,8 +34,8 @@ public class PlayerSounds : MonoBehaviour
         if (other.tag == "Water")
         {
             Debug.Log("Enter water sound effect");
-            soundManager.PlayIntoWaterClip();
-            soundManager.StartWaterAmbiance();
+            audioManager.PlayIntoWaterClip();
+            audioManager.StartWaterAmbiance();
         }
     }
 
@@ -44,13 +44,13 @@ public class PlayerSounds : MonoBehaviour
         if (other.tag == "Water")
         {
             Debug.Log("Exit water sound effect");
-            soundManager.PlayOutOfWaterClip();
-            soundManager.StartNormalAmbiance();
+            audioManager.PlayOutOfWaterClip();
+            audioManager.StartNormalAmbiance();
         }
     }
 
     public void Jump()
     {
-        soundManager.PlayJumpClip();
+        audioManager.PlayJumpClip();
     }
 }
