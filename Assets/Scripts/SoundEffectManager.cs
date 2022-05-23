@@ -103,9 +103,9 @@ public class SoundEffectManager : MonoBehaviour
         normalAmbianceSource.Stop();
     }
 
-    public void GameOver()
-    {
-        defaultSource.clip = gameOver;
-        defaultSource.Play();
-    }
+    // public void GameOver()
+    // {
+    //     defaultSource.clip = gameOver;
+    //     defaultSource.Play();
+    // }
 }

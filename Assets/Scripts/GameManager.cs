@@ -13,7 +13,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Scene deathScene;
 
-    [SerializeField] SoundEffectManager soundManager;
+    // [SerializeField] SoundEffectManager soundManager;
+
+    [SerializeField] AudioManager soundManager;
 
     // transition
     float transition = 0.5f;
@@ -94,7 +96,8 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        FindObjectOfType<SoundEffectManager>().GameOver();
+        // FindObjectOfType<SoundEffectManager>().GameOver();
+        soundManager.PlayGameOverClip();
         if (transition < 0.5f)
         {
             // water creature
@@ -133,7 +136,7 @@ public class GameManager : MonoBehaviour
         timer = endGameAfterFullTransitionTime;
 
         //-----------------------------------------------------------------------------------------------------------
-        soundManager.Warning();
+        soundManager.PlayWarningClip();
     }
 
     void StopTimer()
