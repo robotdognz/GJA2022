@@ -98,6 +98,7 @@ public class AudioManager : MonoBehaviour
     {
         ambiance.clip = normalAmbianceClip;
         ambiance.volume = normalAmbianceVolume;
+        ambiance.time = Random.value * normalAmbianceClip.length;
         ambiance.Play();
     }
 
@@ -105,6 +106,7 @@ public class AudioManager : MonoBehaviour
     {
         ambiance.clip = waterAmbianceClip;
         ambiance.volume = waterAmbianceVolume;
+        ambiance.time = Random.value * waterAmbianceClip.length;
         ambiance.Play();
     }
 
@@ -112,6 +114,7 @@ public class AudioManager : MonoBehaviour
     {
         footsteps.clip = footstepsClip;
         footsteps.volume = footstepsVolume;
+        footsteps.time = Random.value * footstepsClip.length;
         footsteps.Play();
     }
 

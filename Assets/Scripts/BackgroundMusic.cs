@@ -7,14 +7,6 @@ public class BackgroundMusic : MonoBehaviour
 
     [SerializeField] AudioSource music;
 
-    void Start()
-    {
-        if (!music.isPlaying)
-        {
-            music.Play();
-        }
-    }
-
     void Awake()
     {
 
@@ -26,6 +18,14 @@ public class BackgroundMusic : MonoBehaviour
         else
         {
             DontDestroyOnLoad(gameObject);
+        }
+    }
+
+    void Start()
+    {
+        if (!music.isPlaying)
+        {
+            music.Play();
         }
     }
 
