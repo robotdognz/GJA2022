@@ -27884,6 +27884,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1066290060, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
+      value: -9.918131
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066290060, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
+      value: 32.47522
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066290060, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: 73.90402
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066290060, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: 32.77485
+      objectReference: {fileID: 0}
     - target: {fileID: 2901513342185352589, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -27954,11 +27970,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3703147881461281170, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 7.555135
       objectReference: {fileID: 0}
     - target: {fileID: 3703147881461281170, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5139234
+      value: -1.5144145
       objectReference: {fileID: 0}
     - target: {fileID: 3703147882144573803, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: m_AnchorMax.y

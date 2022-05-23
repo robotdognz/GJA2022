@@ -116285,9 +116285,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2058033284850793864, guid: 895dc089d1b2c67498df500201b83c2d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2058033284957226320, guid: 895dc089d1b2c67498df500201b83c2d, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058033284957226320, guid: 895dc089d1b2c67498df500201b83c2d, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2058033284957226324, guid: 895dc089d1b2c67498df500201b83c2d, type: 3}
       propertyPath: m_RootOrder
@@ -116333,6 +116341,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2058033285111863633, guid: 895dc089d1b2c67498df500201b83c2d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2058033285111863634, guid: 895dc089d1b2c67498df500201b83c2d, type: 3}
       propertyPath: soundManager
       value: 
@@ -116354,10 +116366,6 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 335616373}
-    - target: {fileID: 3703147881327564008, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
-      propertyPath: soundManager
-      value: 
-      objectReference: {fileID: 767881180}
     - target: {fileID: 3703147881327564009, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: m_RootOrder
       value: 1
