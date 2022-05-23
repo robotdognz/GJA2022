@@ -5,39 +5,53 @@ using UnityEngine.SceneManagement;
 
 public class TitleScreen : MonoBehaviour
 {
-    AudioSource music;
+    AudioManager audioManager;
 
-    private void Awake() {
+    private void Awake()
+    {
         Time.timeScale = 1;
-
-        music = GetComponent<AudioSource>();
     }
 
     private void Start()
     {
-        BackgroundMusic mainGameMusic = FindObjectOfType<BackgroundMusic>();
-        if (mainGameMusic != null)
+        // get audio manager
+        AudioManager[] audioManagers = FindObjectsOfType<AudioManager>();
+        if (audioManagers != null && audioManagers.Length > 1)
         {
-            StartCoroutine(mainGameMusic.StartFadeOut(0.2f));
+            foreach (AudioManager manager in audioManagers)
+            {
+                if (!manager.isActiveAndEnabled)
+                {
+                    continue;
+                }
+
+                audioManager = manager;
+            }
+        }
+        else if (audioManagers.Length == 1)
+        {
+            audioManager = audioManagers[0];
         }
 
-        music.Play();
+        if (audioManager != null)
+        {
+            audioManager.StopAmbiance();
+            audioManager.StartMenuMusic();
+        }
     }
 
     public void StartGame()
     {
         Debug.Log("Start Game");
+
+        // switch sounds
+        if (audioManager != null)
+        {
+            audioManager.StartGameMusic();
+            audioManager.StartNormalAmbiance();
+        }
+
         // load next level
-        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        StartCoroutine(NewGame());
-    }
-
-    IEnumerator NewGame()
-    {
-        float fadeTime = 0.2f;
-        StartCoroutine(StartFadeOut(fadeTime));
-        yield return new WaitForSecondsRealtime(fadeTime);
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -45,19 +59,5 @@ public class TitleScreen : MonoBehaviour
     {
         Debug.Log("Quit Game");
         Application.Quit();
-    }
-
-    public IEnumerator StartFadeOut(float duration)
-    {
-        Debug.Log("Fade Music");
-        float currentTime = 0;
-        float start = music.volume;
-        while (currentTime < duration)
-        {
-            currentTime += Time.deltaTime;
-            music.volume = Mathf.Lerp(start, 0, currentTime / duration);
-            yield return null;
-        }
-        yield break;
     }
 }

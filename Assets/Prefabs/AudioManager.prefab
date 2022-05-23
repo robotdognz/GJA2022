@@ -1078,11 +1078,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuMusicVolume: 1
-  gameMusicVolume: 1
+  gameMusicVolume: 0.226
   jumpVolume: 1
   footstepsVolume: 1
-  intoWaterVolume: 1
-  outOfWaterVolume: 1
+  intoWaterVolume: 0.755
+  outOfWaterVolume: 0.75
   normalAmbianceVolume: 1
   waterAmbianceVolume: 1
   warningVolume: 1
@@ -1115,7 +1115,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a556fafe566526e438cbec589abad74a, type: 3}
   UIHoverClips:
   - {fileID: 8300000, guid: caf5f907c11763b49b7e876abbaf2b1c, type: 3}
-  music: {fileID: 0}
+  music: {fileID: 1263593190343067010}
   ambiance: {fileID: 6045988158714718187}
   jumpSource: {fileID: 6045988159921335153}
   footsteps: {fileID: 6045988160073430138}

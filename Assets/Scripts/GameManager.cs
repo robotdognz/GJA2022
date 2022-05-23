@@ -13,9 +13,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Scene deathScene;
 
-    // [SerializeField] SoundEffectManager soundManager;
-
-    [SerializeField] AudioManager soundManager;
+    AudioManager audioManager;
 
     // transition
     float transition = 0.5f;
@@ -48,7 +46,27 @@ public class GameManager : MonoBehaviour
         // setup timer
         timer = endGameAfterFullTransitionTime;
 
+        // make sure time is running
         Time.timeScale = 1;
+
+        // get audio manager
+        AudioManager[] audioManagers = FindObjectsOfType<AudioManager>();
+        if (audioManagers != null && audioManagers.Length > 1)
+        {
+            foreach (AudioManager manager in audioManagers)
+            {
+                if (!manager.isActiveAndEnabled)
+                {
+                    continue;
+                }
+
+                audioManager = manager;
+            }
+        }
+        else if (audioManagers.Length == 1)
+        {
+            audioManager = audioManagers[0];
+        }
     }
 
     void Update()
@@ -73,12 +91,10 @@ public class GameManager : MonoBehaviour
                 }
 
                 transitionBar.gameObject.transform.Find("Background").GetComponent<Image>().color = bad;
-                // transitionBar.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = bad;
             }
             else
             {
                 transitionBar.gameObject.transform.Find("Background").GetComponent<Image>().color = fine;
-                // transitionBar.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = fine;
             }
         }
     }
@@ -87,17 +103,12 @@ public class GameManager : MonoBehaviour
     private void timerEnded()
     {
         // end game
-        // Debug.Log("Game Over");
-        // gameOver = true;
-        // remove transition bar UI element
-        // transitionBar.gameObject.SetActive(false);
         RestartGame();
     }
 
     public void RestartGame()
     {
-        // FindObjectOfType<SoundEffectManager>().GameOver();
-        soundManager.PlayGameOverClip();
+        audioManager.PlayGameOverClip();
         if (transition < 0.5f)
         {
             // water creature
@@ -112,36 +123,25 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator WinGame()
     {
-        // fade out the background music before ending
+        // pause for a moment before ending
         float fadeOutTime = 1;
-        // StartCoroutine(FindObjectOfType<BackgroundMusic>().StartFadeOut(fadeOutTime));
         yield return new WaitForSecondsRealtime(fadeOutTime);
 
-        // kill all the background music game objects
-        // BackgroundMusic[] backgroundMusics = FindObjectsOfType<BackgroundMusic>();
-        // foreach(BackgroundMusic bm in backgroundMusics)
-        // {
-        //     bm.GetComponent<AudioSource>().Stop();
-        //     Destroy(bm);
-        // }
-
         // load end game scene
+        audioManager.StopAmbiance();
         SceneManager.LoadScene("99_EndGame");
     }
 
     void StartTimer()
     {
-        // Debug.Log("Timer started");
         timerRunning = true;
         timer = endGameAfterFullTransitionTime;
 
-        //-----------------------------------------------------------------------------------------------------------
-        soundManager.PlayWarningClip();
+        audioManager.PlayWarningClip();
     }
 
     void StopTimer()
     {
-        // Debug.Log("Timer stopped");
         timerRunning = false;
     }
 

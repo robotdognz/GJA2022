@@ -55,6 +55,20 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource gameOverSource;
     [SerializeField] AudioSource UISource;
 
+    void Awake()
+    {
+        // singleton
+        int numScenePersists = FindObjectsOfType<AudioManager>().Length;
+        if (numScenePersists > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     // --------- Music -----------------
 
     public void StartMenuMusic()
@@ -69,6 +83,7 @@ public class AudioManager : MonoBehaviour
 
     public IEnumerator PlayMusic(AudioClip clip, float volume, float fadeDuration)
     {
+
         if (!music.isPlaying)
         {
             music.clip = clip;
@@ -131,10 +146,6 @@ public class AudioManager : MonoBehaviour
 
     // ---------- Ambiance ----------------
 
-    private void Start()
-    {
-        StartNormalAmbiance();
-    }
     public void StartNormalAmbiance()
     {
         ambiance.clip = normalAmbianceClip;
@@ -149,6 +160,11 @@ public class AudioManager : MonoBehaviour
         ambiance.volume = waterAmbianceVolume;
         ambiance.time = Random.value * waterAmbianceClip.length;
         ambiance.Play();
+    }
+
+    public void StopAmbiance()
+    {
+        ambiance.Stop();
     }
 
 
