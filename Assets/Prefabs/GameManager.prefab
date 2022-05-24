@@ -966,7 +966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionBar: {fileID: 3703147882015247969}
   transitionSpeed: 0.15
-  endGameAfterFullTransitionTime: 1
+  endGameAfterFullTransitionTime: 1.4
   deathScene:
     m_Handle: 0
 --- !u!1 &3703147881440368867
