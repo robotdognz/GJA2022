@@ -37,7 +37,6 @@ public class GameOverScreen : MonoBehaviour
     public void TryAgain()
     {
         Time.timeScale = 1f;
-        Debug.Log(Time.timeScale);
         audioManager.PlayUIClickClip();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

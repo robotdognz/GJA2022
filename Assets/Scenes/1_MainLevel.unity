@@ -116331,10 +116331,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3703147880981074712, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3703147881056237811, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: m_Follow
       value: 
@@ -116386,10 +116382,6 @@ PrefabInstance:
     - target: {fileID: 3703147881327564011, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703147882144573803, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
