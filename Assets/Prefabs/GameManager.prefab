@@ -2371,8 +2371,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: If you stay on land or in water too long, you will finish transitioning
-    and the game will end. Can you make it to the end of the level before you finish
+  m_text: If you stay on land or in water too long, you will finish evolving and
+    the game will end. Can you make it to the end of the level before you finish
     transitioning?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
