@@ -81,6 +81,24 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(PlayMusic(gameMusicClip, gameMusicVolume, 0.05f));
     }
 
+    public bool IsPlayingGameMusic()
+    {
+        if (music.isPlaying && music.clip == gameMusicClip)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public bool IsPlayingMenuMusic()
+    {
+        if (music.isPlaying && music.clip == menuMusicClip)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public IEnumerator PlayMusic(AudioClip clip, float volume, float fadeDuration)
     {
 

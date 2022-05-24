@@ -67,6 +67,14 @@ public class GameManager : MonoBehaviour
         {
             audioManager = audioManagers[0];
         }
+
+        if (audioManager != null)
+        {
+            if (!audioManager.IsPlayingGameMusic())
+            {
+                audioManager.StartGameMusic();
+            }
+        }
     }
 
     void Update()
@@ -110,7 +118,7 @@ public class GameManager : MonoBehaviour
     {
         audioManager.PlayGameOverClip();
         audioManager.StopFootsteps();
-        
+
         if (transition < 0.5f)
         {
             // water creature

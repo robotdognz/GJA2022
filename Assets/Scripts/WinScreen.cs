@@ -31,6 +31,7 @@ public class WinScreen : MonoBehaviour
 
         if (audioManager != null)
         {
+            audioManager.StopFootsteps();
             audioManager.StopAmbiance();
             audioManager.StartMenuMusic();
         }

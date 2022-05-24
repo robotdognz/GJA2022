@@ -36,7 +36,10 @@ public class TitleScreen : MonoBehaviour
         if (audioManager != null)
         {
             audioManager.StopAmbiance();
-            audioManager.StartMenuMusic();
+            if (!audioManager.IsPlayingMenuMusic())
+            {
+                audioManager.StartMenuMusic();
+            }
         }
     }
 
