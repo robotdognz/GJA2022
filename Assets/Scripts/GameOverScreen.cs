@@ -53,7 +53,7 @@ public class GameOverScreen : MonoBehaviour
         pauseMenuUI.SetActive(true);
         HUD_UI.SetActive(false);
         Time.timeScale = 0;
-        deathText.text = "Congratulations! You became a water creature!";
+        deathText.text = "You became a water creature!";
     }
 
     public void GameOverLand()
@@ -61,7 +61,7 @@ public class GameOverScreen : MonoBehaviour
         pauseMenuUI.SetActive(true);
         HUD_UI.SetActive(false);
         Time.timeScale = 0;
-        deathText.text = "Congratulations! You became a land creature!";
+        deathText.text = "You became a land creature!";
     }
 
     public void PointerEnter()

@@ -73,12 +73,12 @@ public class AudioManager : MonoBehaviour
 
     public void StartMenuMusic()
     {
-        StartCoroutine(PlayMusic(menuMusicClip, menuMusicVolume, 0.5f));
+        StartCoroutine(PlayMusic(menuMusicClip, menuMusicVolume, 0.05f));
     }
 
     public void StartGameMusic()
     {
-        StartCoroutine(PlayMusic(gameMusicClip, gameMusicVolume, 0.5f));
+        StartCoroutine(PlayMusic(gameMusicClip, gameMusicVolume, 0.05f));
     }
 
     public IEnumerator PlayMusic(AudioClip clip, float volume, float fadeDuration)
@@ -89,6 +89,7 @@ public class AudioManager : MonoBehaviour
             music.clip = clip;
             music.volume = volume;
             music.Play();
+            yield break;
         }
         else
         {
@@ -197,7 +198,7 @@ public class AudioManager : MonoBehaviour
     {
         ambiance.clip = waterAmbianceClip;
         ambiance.volume = waterAmbianceVolume;
-        ambiance.time = Random.value * waterAmbianceClip.length;
+        ambiance.time = 0; //Random.value * waterAmbianceClip.length;
         ambiance.Play();
     }
 
