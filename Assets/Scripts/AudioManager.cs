@@ -141,11 +141,45 @@ public class AudioManager : MonoBehaviour
         footsteps.volume = footstepsVolume;
         footsteps.time = Random.value * footstepsClip.length;
         footsteps.Play();
+
+        // if (!footsteps.isPlaying)
+        // {
+        //     footsteps.volume = 0;
+        //     footsteps.Play();
+        //     fade = StartCoroutine(FadeSource(footsteps, footstepsVolume, 0.2f, false));
+        // }
     }
 
     public void StopFootsteps()
     {
         footsteps.Stop();
+
+        // if (footsteps.isPlaying)
+        // {
+        //     StartCoroutine(FadeSource(footsteps, footstepsVolume, 0.2f, true));
+        // }
+    }
+
+    public IEnumerator FadeSource(AudioSource source, float destinationVolume, float fadeDuration, bool stop)
+    {
+
+
+        float currentTime = 0;
+        float start = music.volume;
+        while (currentTime < fadeDuration)
+        {
+            currentTime += Time.deltaTime;
+            music.volume = Mathf.Lerp(start, destinationVolume, currentTime / fadeDuration);
+            yield return null;
+        }
+
+        if (stop)
+        {
+            // if stop, stop when finished fading
+            source.Stop();
+        }
+        yield break;
+
     }
 
 
