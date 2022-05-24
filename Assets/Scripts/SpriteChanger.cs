@@ -29,21 +29,24 @@ public class SpriteChanger : MonoBehaviour
 
     public void UpdateSprite(float transition)
     {
-        if (transition >= 0.75f)
-        {
-            sRenderer.sprite = sprites[3];
-        }
-        else if (transition >= 0.5f)
-        {
-            sRenderer.sprite = sprites[2];
-        }
-        else if (transition >= 0.25f)
-        {
-            sRenderer.sprite = sprites[1];
-        }
-        else
-        {
-            sRenderer.sprite = sprites[0];
-        }
+
+        animator.SetFloat("Transition", transition);
+
+        // if (transition >= 0.75f)
+        // {
+        //     sRenderer.sprite = sprites[3];
+        // }
+        // else if (transition >= 0.5f)
+        // {
+        //     sRenderer.sprite = sprites[2];
+        // }
+        // else if (transition >= 0.25f)
+        // {
+        //     sRenderer.sprite = sprites[1];
+        // }
+        // else
+        // {
+        //     sRenderer.sprite = sprites[0];
+        // }
     }
 }

@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 130
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -642,7 +642,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Tilesheet_SeaLand2_23: -1494044443
+      Tilesheet_SeaLand2_3: 2011591488
       Tilesheet_SeaLand2_4: -278902398
       Tilesheet_SeaLand2_10: -890485854
       Tilesheet_SeaLand2_5: 676975673
@@ -664,8 +664,8 @@ TextureImporter:
       Tilesheet_SeaLand2_7: 801573266
       Tilesheet_SeaLand2_19: -774878928
       Tilesheet_SeaLand2_20: -1107964240
-      Tilesheet_SeaLand2_3: 2011591488
       Tilesheet_SeaLand2_12: -1363695945
+      Tilesheet_SeaLand2_23: -1494044443
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
