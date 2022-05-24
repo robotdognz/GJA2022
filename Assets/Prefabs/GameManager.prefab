@@ -602,7 +602,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3703147881056237810}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.757, y: -1.641, z: -10}
+  m_LocalPosition: {x: 0, y: -1.636, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -966,7 +966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionBar: {fileID: 3703147882015247969}
   transitionSpeed: 0.15
-  endGameAfterFullTransitionTime: 1.4
+  endGameAfterFullTransitionTime: 1.5
   deathScene:
     m_Handle: 0
 --- !u!1 &3703147881440368867
@@ -1160,7 +1160,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3703147881461281134}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.555127, y: -1.6414378, z: -10}
+  m_LocalPosition: {x: 7.555127, y: -1.6364759, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

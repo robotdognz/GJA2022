@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 538526685
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b7722255d7580714e910dff51dcbc748, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -98,11 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e520409e09b2340a69128db009ba5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 21300000, guid: f41f32c04583c554e94fcc90bd7e98ed, type: 3}
-  - {fileID: 21300000, guid: ddfe7e5b0e5b0b747b157027684db5a5, type: 3}
-  - {fileID: 21300000, guid: b900d778b509baa4dab6604b748bb41c, type: 3}
-  - {fileID: 21300000, guid: b7722255d7580714e910dff51dcbc748, type: 3}
 --- !u!95 &389653763
 Animator:
   serializedVersion: 4
@@ -196,7 +191,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2.28, y: 0.68}
+  m_Size: {x: 1.92, y: 0.68}
   m_Direction: 1
 --- !u!61 &2058033284957226329
 BoxCollider2D:
@@ -222,7 +217,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.0308104, y: 0.1443268}
+  m_Size: {x: 1.77, y: 0.1443268}
   m_EdgeRadius: 0
 --- !u!114 &2058033284957226327
 MonoBehaviour:
@@ -336,7 +331,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9152005, y: 0.1443299}
+  m_Size: {x: 1.69, y: 0.1443299}
   m_EdgeRadius: 0
 --- !u!82 &2058033285111863637
 AudioSource:

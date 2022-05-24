@@ -45,14 +45,14 @@ TagManager:
   - name: Decorations Behind
     uniqueID: 78085287
     locked: 0
+  - name: Player
+    uniqueID: 538526685
+    locked: 0
   - name: Water
     uniqueID: 2801300427
     locked: 0
   - name: Platforms
     uniqueID: 545373709
-    locked: 0
-  - name: Player
-    uniqueID: 538526685
     locked: 0
   - name: Decorations On Top
     uniqueID: 1073535407
