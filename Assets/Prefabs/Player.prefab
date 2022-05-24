@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 2058033284850793867}
   - component: {fileID: 2058033284850793866}
   - component: {fileID: 1317523407375736918}
-  m_Layer: 0
+  - component: {fileID: 389653763}
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,6 +103,26 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ddfe7e5b0e5b0b747b157027684db5a5, type: 3}
   - {fileID: 21300000, guid: b900d778b509baa4dab6604b748bb41c, type: 3}
   - {fileID: 21300000, guid: b7722255d7580714e910dff51dcbc748, type: 3}
+--- !u!95 &389653763
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058033284850793864}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7546a0a22ee0b2409b018f6abfa8912, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2058033284957226320
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +137,7 @@ GameObject:
   - component: {fileID: 2058033284957226329}
   - component: {fileID: 2058033284957226327}
   - component: {fileID: 2058033284957226326}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -269,7 +290,7 @@ GameObject:
   - component: {fileID: 2058033285111863635}
   - component: {fileID: 2058033285111863637}
   - component: {fileID: 2058033285111863634}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SoundTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,4 +446,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b31f34001486c441848949e194babe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundManager: {fileID: 0}
+  audioManager: {fileID: 0}
