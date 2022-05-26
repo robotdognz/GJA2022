@@ -1078,15 +1078,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuMusicVolume: 1
-  gameMusicVolume: 0.2
+  gameMusicVolume: 0.195
   jumpVolume: 0.457
   intoWaterVolume: 0.497
   outOfWaterVolume: 0.387
-  footstepsVolume: 0.5
-  swimmingVolume: 1
+  footstepsVolume: 0.474
+  swimmingVolume: 0.471
   normalAmbianceVolume: 1
-  waterAmbianceVolume: 0.4
-  warningVolume: 0.39
+  waterAmbianceVolume: 0.263
+  warningVolume: 0.374
   gameOverVolume: 0.826
   UIClickVolume: 0.421
   UIHoverVolume: 0.35
@@ -1106,7 +1106,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 52f0cd39202ece44ebdf6aad7e8f64b2, type: 3}
   - {fileID: 8300000, guid: 7b301c32db5ca6043a45dd90cb1f8b22, type: 3}
   footstepsClip: {fileID: 8300000, guid: fa79e8518cf64724bae00aba2123d1af, type: 3}
-  swimmingClip: {fileID: 8300000, guid: 555c3041e99872747a77acb60c39bf11, type: 3}
+  swimmingClip: {fileID: 8300000, guid: 09fee0d16a3bc8647947f0a9e214b8a6, type: 3}
   normalAmbianceClip: {fileID: 8300000, guid: bc3183baee3d69b4f91204862a03d8e6, type: 3}
   waterAmbianceClip: {fileID: 8300000, guid: 26d1686149546614a8572a03fc375857, type: 3}
   warningClips:

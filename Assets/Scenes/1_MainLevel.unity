@@ -104284,30 +104284,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2194185699849916587, guid: c9a12adf87db76d41868caf2119c6237, type: 3}
-      propertyPath: swimmingClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 09fee0d16a3bc8647947f0a9e214b8a6, type: 3}
-    - target: {fileID: 2194185699849916587, guid: c9a12adf87db76d41868caf2119c6237, type: 3}
-      propertyPath: warningVolume
-      value: 0.374
-      objectReference: {fileID: 0}
-    - target: {fileID: 2194185699849916587, guid: c9a12adf87db76d41868caf2119c6237, type: 3}
-      propertyPath: swimmingVolume
-      value: 0.471
-      objectReference: {fileID: 0}
-    - target: {fileID: 2194185699849916587, guid: c9a12adf87db76d41868caf2119c6237, type: 3}
-      propertyPath: footstepsVolume
-      value: 0.474
-      objectReference: {fileID: 0}
-    - target: {fileID: 2194185699849916587, guid: c9a12adf87db76d41868caf2119c6237, type: 3}
-      propertyPath: gameMusicVolume
-      value: 0.195
-      objectReference: {fileID: 0}
-    - target: {fileID: 2194185699849916587, guid: c9a12adf87db76d41868caf2119c6237, type: 3}
-      propertyPath: waterAmbianceVolume
-      value: 0.263
-      objectReference: {fileID: 0}
     - target: {fileID: 6954564231392787141, guid: c9a12adf87db76d41868caf2119c6237, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -105028,11 +105004,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3703147881461281170, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.637092
+      value: 7.555127
       objectReference: {fileID: 0}
     - target: {fileID: 3703147881461281170, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.6404845
+      value: -1.6404082
       objectReference: {fileID: 0}
     - target: {fileID: 3703147882144573803, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: m_AnchorMax.y
