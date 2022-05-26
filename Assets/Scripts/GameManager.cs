@@ -11,11 +11,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] float transitionSpeed = 0.1f;
     [SerializeField] float endGameAfterFullTransitionTime = 2;
 
+    [SerializeField] Scene deathScene;
+
+    AudioManager audioManager;
+
     // transition
-    float transition = 0;
+    float transition = 0.5f;
     float transitionMin = 0; // full water
     float transitionMax = 1; // full land
     bool gameOver = false;
+    SpriteChanger spriteChanger;
 
     // end game timer
     float timer;
@@ -25,6 +30,9 @@ public class GameManager : MonoBehaviour
     Color fine = new Color(1, 1, 1);
     Color bad = new Color(1, 0, 0);
 
+    // debug
+    bool barRunning = true;
+
     void Start()
     {
         // setup transition UI element
@@ -32,16 +40,52 @@ public class GameManager : MonoBehaviour
         transitionBar.minValue = transitionMin;
         transitionBar.maxValue = transitionMax;
 
+        // player transition sprite
+        spriteChanger = FindObjectOfType<SpriteChanger>();
+
         // setup timer
         timer = endGameAfterFullTransitionTime;
+
+        // make sure time is running
+        Time.timeScale = 1;
+
+        // get audio manager
+        AudioManager[] audioManagers = FindObjectsOfType<AudioManager>();
+        if (audioManagers != null && audioManagers.Length > 1)
+        {
+            foreach (AudioManager manager in audioManagers)
+            {
+                if (!manager.isActiveAndEnabled)
+                {
+                    continue;
+                }
+
+                audioManager = manager;
+            }
+        }
+        else if (audioManagers.Length == 1)
+        {
+            audioManager = audioManagers[0];
+        }
+
+        if (audioManager != null)
+        {
+            if (!audioManager.IsPlayingGameMusic())
+            {
+                audioManager.StartGameMusic();
+            }
+        }
     }
 
     void Update()
     {
         if (!gameOver)
         {
-            // transition
+            // transition bar
             transitionBar.value = transition;
+
+            // transition player sprite
+            spriteChanger.UpdateSprite(transition);
 
             // timer
             if (timerRunning)
@@ -51,15 +95,14 @@ public class GameManager : MonoBehaviour
                 if (timer <= 0.0f)
                 {
                     timerEnded();
+                    timerRunning = false;
                 }
 
                 transitionBar.gameObject.transform.Find("Background").GetComponent<Image>().color = bad;
-                // transitionBar.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = bad;
             }
             else
             {
                 transitionBar.gameObject.transform.Find("Background").GetComponent<Image>().color = fine;
-                // transitionBar.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = fine;
             }
         }
     }
@@ -68,33 +111,57 @@ public class GameManager : MonoBehaviour
     private void timerEnded()
     {
         // end game
-        // Debug.Log("Game Over");
-        // gameOver = true;
-        // remove transition bar UI element
-        // transitionBar.gameObject.SetActive(false);
+        RestartGame();
     }
 
-    public void Restart()
+    public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        audioManager.PlayGameOverClip();
+        audioManager.StopMovementSounds();
+
+        if (transition < 0.5f)
+        {
+            // water creature
+            FindObjectOfType<GameOverScreen>().GameOverWater();
+        }
+        else
+        {
+            // land creature
+            FindObjectOfType<GameOverScreen>().GameOverLand();
+        }
+    }
+
+    public IEnumerator WinGame()
+    {
+        // pause for a moment before ending
+        float fadeOutTime = 1;
+        yield return new WaitForSecondsRealtime(fadeOutTime);
+
+        // load end game scene
+        audioManager.StopAmbiance();
+        SceneManager.LoadScene("99_EndGame");
     }
 
     void StartTimer()
     {
-        Debug.Log("Timer started");
         timerRunning = true;
         timer = endGameAfterFullTransitionTime;
+
+        audioManager.PlayWarningClip();
     }
 
     void StopTimer()
     {
-        Debug.Log("Timer stopped");
         timerRunning = false;
     }
 
-
     public void IncrementWater()
     {
+        if (!barRunning)
+        {
+            return;
+        }
+
         if (!timerRunning)
         {
             transition = Mathf.Clamp(transition - transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
@@ -113,6 +180,11 @@ public class GameManager : MonoBehaviour
 
     public void IncrementLand()
     {
+        if (!barRunning)
+        {
+            return;
+        }
+
         if (!timerRunning)
         {
             transition = Mathf.Clamp(transition + transitionSpeed * Time.deltaTime, transitionMin, transitionMax);
@@ -137,5 +209,35 @@ public class GameManager : MonoBehaviour
     public bool IsGameOver()
     {
         return gameOver;
+    }
+
+
+    // ---------- Legacy and Debug ------------
+
+    public void ToggleMode()
+    {
+        if (transition != transitionMin)
+        {
+            transition = transitionMin;
+        }
+        else
+        {
+            transition = transitionMax;
+        }
+    }
+
+    public void ToggleTimer()
+    {
+        barRunning = !barRunning;
+    }
+
+    public void IncrementWater(float amount)
+    {
+        transition = Mathf.Clamp(transition - amount, transitionMin, transitionMax);
+    }
+
+    public void IncrementLand(float amount)
+    {
+        transition = Mathf.Clamp(transition + amount, transitionMin, transitionMax);
     }
 }

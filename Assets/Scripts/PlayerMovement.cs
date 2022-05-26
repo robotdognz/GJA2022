@@ -20,10 +20,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float waterCreature_waterJumpPower = 20;
     [SerializeField] float waterCreatureBuoyancy = 0;
 
-    // float movementIncrease = 0.2f;
+    [Header("General Land Movement")]
+    [SerializeField] float movementIncrease = 0.2f;
+    [SerializeField] float movementSlow = 0.98f;
 
     // current state
     bool isInWater = false;
+    bool onGround = false;
     float currentRunSpeed;
     Vector2 currentSwimSpeed;
     float currentLandJumpPower;
@@ -33,21 +36,30 @@ public class PlayerMovement : MonoBehaviour
     Vector2 moveInput;
     Rigidbody2D myRigidBody;
     Collider2D myCollider;
-    BuoyancyEffector2D water;
+    BoxCollider2D myFeetCollider;
+    BuoyancyEffector2D[] waters;
 
     // game management
     GameManager gameManager;
+
+    // sounds and animations
+    PlayerSounds playerSounds;
+    SpriteChanger playerAnimation;
 
     void Start()
     {
         // setup fields
         myRigidBody = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<CapsuleCollider2D>();
+        myFeetCollider = GetComponentInChildren<BoxCollider2D>();
         gameManager = FindObjectOfType<GameManager>();
-        water = FindObjectOfType<BuoyancyEffector2D>();
+        waters = FindObjectsOfType<BuoyancyEffector2D>();
+
+        playerSounds = GetComponentInChildren<PlayerSounds>();
+        playerAnimation = GetComponentInChildren<SpriteChanger>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         UpdateTerranType();
         UpdateMovementSkill();
@@ -65,6 +77,50 @@ public class PlayerMovement : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
         }
+
+        MovementSoundAndAnimation();
+    }
+
+    private void MovementSoundAndAnimation()
+    {
+        // animation
+        if (myCollider.IsTouchingLayers(LayerMask.GetMask("Platforms", "Water")))
+        {
+            // on land or in water and moving on x-axis
+            playerAnimation.PlayAnimation(Mathf.Abs(myRigidBody.velocity.x) * 0.25f);
+        }
+        else
+        {
+            // in air or not moving on x-axis
+            playerAnimation.PauseAnimation();
+        }
+
+        // sound
+        if (Mathf.Abs(myRigidBody.velocity.x) > 2f)
+        {
+            // footstep sound
+            if (myCollider.IsTouchingLayers(LayerMask.GetMask("Platforms")) && !myCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
+            {
+                // on land and moving on x-axis
+                playerSounds.audioManager.StartFootsteps();
+            }
+            else if (myCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
+            {
+                // in air or not moving on x-axis
+                playerSounds.audioManager.StartSwimming();
+            }
+            else
+            {
+                // in air or not moving on x-axis
+                playerSounds.audioManager.StopMovementSounds();
+            }
+
+        }
+        else
+        {
+            playerAnimation.PauseAnimation();
+            playerSounds.audioManager.StopMovementSounds();
+        }
     }
 
     private void UpdateMovementSkill()
@@ -78,11 +134,14 @@ public class PlayerMovement : MonoBehaviour
         currentWaterJumpPower = FloatLerp(waterCreature_waterJumpPower, landCreature_waterJumpPower, transition);
 
         currentBuoyancy = FloatLerp(waterCreatureBuoyancy, landCreatureBuoyancy, transition);
-        water.density = currentBuoyancy;
 
-        // Debug.Log(currentRunSpeed);
+        foreach (BuoyancyEffector2D water in waters)
+        {
+            water.density = currentBuoyancy;
+        }
     }
 
+    // transition calculation methods
     float FloatLerp(float start, float end, float percent)
     {
         return (start + percent * (end - start));
@@ -106,6 +165,9 @@ public class PlayerMovement : MonoBehaviour
             isInWater = true;
             gameManager.IncrementWater();
         }
+
+        onGround = myCollider.IsTouchingLayers(LayerMask.GetMask("Platforms"));
+
     }
 
     private void Run()
@@ -118,36 +180,59 @@ public class PlayerMovement : MonoBehaviour
             // do land movement
 
 
-            // if (Mathf.Abs(moveInput.x) > 0)
-            // {
-            //     // moving on the x axis
+            if (Mathf.Abs(moveInput.x) > 0)
+            {
+                // moving on the x axis
 
-            //     if (moveInput.x > 0)
-            //     {
-            //         // moving right
-            //         if (myRigidBody.velocity.x < currentRunSpeed)
-            //         {
-            //             xMovement = Mathf.Min(myRigidBody.velocity.x + movementIncrease, currentRunSpeed);
-            //         }
-            //     }
-            //     else
-            //     {
-            //         // moving left
-            //         if (myRigidBody.velocity.x > -currentRunSpeed)
-            //         {
-            //             xMovement = Mathf.Max(myRigidBody.velocity.x - movementIncrease, -currentRunSpeed);
-            //         }
-            //     }
-            // }
+                if (moveInput.x > 0)
+                {
+                    // moving right
+                    if (myRigidBody.velocity.x < currentRunSpeed)
+                    {
+                        xMovement = Mathf.Min(myRigidBody.velocity.x + movementIncrease, currentRunSpeed);
+                    }
+                }
+                else
+                {
+                    // moving left
+                    if (myRigidBody.velocity.x > -currentRunSpeed)
+                    {
+                        xMovement = Mathf.Max(myRigidBody.velocity.x - movementIncrease, -currentRunSpeed);
+                    }
+                }
 
-            xMovement = moveInput.x * currentRunSpeed; //myRigidBody.velocity.x + 
-            yMovement = myRigidBody.velocity.y;
+                if (onGround && !playerSounds.audioManager.FootstepsActive())
+                {
+                    // play walking sound if it isn't already playing
+                    // playerSounds.audioManager.StartFootsteps();
+                    // playerAnimation.ResumeAnimation();
+                }
+            }
+            else if (onGround)
+            {
+                xMovement = myRigidBody.velocity.x * movementSlow;
+
+                // stop walking sound and animation
+                // playerSounds.audioManager.StopFootsteps();
+                // playerAnimation.PauseAnimation();
+            }
+            else
+            {
+                // stop walking sound and animation
+                // playerSounds.audioManager.StopFootsteps();
+                // playerAnimation.PauseAnimation();
+            }
+
         }
         else
         {
             // do water movement
-            xMovement = myRigidBody.velocity.x + moveInput.x * currentSwimSpeed.x; //Mathf.Clamp(myRigidBody.velocity.x + moveInput.x * currentSwimSpeed.x, -currentSwimSpeed.x, currentSwimSpeed.x);
-            yMovement = myRigidBody.velocity.y + moveInput.y * currentSwimSpeed.y; //Mathf.Clamp(myRigidBody.velocity.y + moveInput.y * currentSwimSpeed.y, -currentSwimSpeed.y, currentSwimSpeed.y);
+            xMovement = myRigidBody.velocity.x + moveInput.x * currentSwimSpeed.x;
+            yMovement = myRigidBody.velocity.y + moveInput.y * currentSwimSpeed.y;
+
+            // stop walking sound and animation
+            // playerSounds.audioManager.StopFootsteps();
+            // playerAnimation.PauseAnimation();
         }
 
         // apply the movement
@@ -165,40 +250,40 @@ public class PlayerMovement : MonoBehaviour
     void OnJump(InputValue value)
     {
         // only jump when touching platforms or in water
-        if (myCollider.IsTouchingLayers(LayerMask.GetMask("Platforms")) && myCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
+        if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Platforms")) && myCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
         {
             // do most powerful jump
             float tempJumpPower = Mathf.Max(currentWaterJumpPower, currentLandJumpPower);
             myRigidBody.velocity += new Vector2(0, tempJumpPower);
-            Debug.Log("Jump" + tempJumpPower);
+            // playerSounds.Jump();
+            playerSounds.audioManager.PlayJumpClip();
         }
-        else if (myCollider.IsTouchingLayers(LayerMask.GetMask("Platforms")))
+        else if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Platforms")))
         {
             // do land jump
             myRigidBody.velocity += new Vector2(0, currentLandJumpPower);
-            Debug.Log("Jump" + currentLandJumpPower);
+            // playerSounds.Jump();
+            playerSounds.audioManager.PlayJumpClip();
         }
-        else if (myCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
+        else if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
         {
 
             // do water jump
             myRigidBody.velocity += new Vector2(0, currentWaterJumpPower);
-            Debug.Log("Jump" + currentWaterJumpPower);
+            // playerSounds.Jump();
+            playerSounds.audioManager.PlayJumpClip();
         }
 
+    }
 
 
+    void OnToggleMode(InputValue value)
+    {
+        gameManager.ToggleMode();
+    }
 
-        //  // only jump when touching platforms or in water
-        // if (!myCollider.IsTouchingLayers(LayerMask.GetMask("Platforms", "Water")))
-        // {
-        //     return;
-        // }
-
-        // if (value.isPressed)
-        // {
-        //     Debug.Log("Jump");
-        //     myRigidBody.velocity += new Vector2(0, currentLandJumpPower);
-        // }
+    void OnToggleTimer(InputValue value)
+    {
+        gameManager.ToggleTimer();
     }
 }
