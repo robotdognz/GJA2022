@@ -104284,42 +104284,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2194185699849916587, guid: c9a12adf87db76d41868caf2119c6237, type: 3}
-      propertyPath: jumpVolume
-      value: 0.457
-      objectReference: {fileID: 0}
-    - target: {fileID: 2194185699849916587, guid: c9a12adf87db76d41868caf2119c6237, type: 3}
-      propertyPath: UIClickVolume
-      value: 0.421
-      objectReference: {fileID: 0}
-    - target: {fileID: 2194185699849916587, guid: c9a12adf87db76d41868caf2119c6237, type: 3}
-      propertyPath: UIHoverVolume
-      value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 2194185699849916587, guid: c9a12adf87db76d41868caf2119c6237, type: 3}
-      propertyPath: warningVolume
-      value: 0.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 2194185699849916587, guid: c9a12adf87db76d41868caf2119c6237, type: 3}
-      propertyPath: gameOverVolume
-      value: 0.826
-      objectReference: {fileID: 0}
-    - target: {fileID: 2194185699849916587, guid: c9a12adf87db76d41868caf2119c6237, type: 3}
-      propertyPath: intoWaterVolume
-      value: 0.497
-      objectReference: {fileID: 0}
-    - target: {fileID: 2194185699849916587, guid: c9a12adf87db76d41868caf2119c6237, type: 3}
-      propertyPath: outOfWaterVolume
-      value: 0.387
-      objectReference: {fileID: 0}
-    - target: {fileID: 2194185699849916587, guid: c9a12adf87db76d41868caf2119c6237, type: 3}
-      propertyPath: waterAmbianceVolume
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2194185699849916587, guid: c9a12adf87db76d41868caf2119c6237, type: 3}
-      propertyPath: normalAmbianceVolume
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6954564231392787141, guid: c9a12adf87db76d41868caf2119c6237, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -105040,11 +105004,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3703147881461281170, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.218411
+      value: 7.555127
       objectReference: {fileID: 0}
     - target: {fileID: 3703147881461281170, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.6404463
+      value: -1.6404082
       objectReference: {fileID: 0}
     - target: {fileID: 3703147882144573803, guid: 7cc1fa39eae7c6e439a02c2ec69b6247, type: 3}
       propertyPath: m_AnchorMax.y

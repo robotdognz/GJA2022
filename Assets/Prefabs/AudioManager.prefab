@@ -779,7 +779,7 @@ GameObject:
   - component: {fileID: 6045988160073430133}
   - component: {fileID: 6045988160073430138}
   m_Layer: 0
-  m_Name: Footsteps
+  m_Name: Movement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1079,16 +1079,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuMusicVolume: 1
   gameMusicVolume: 0.2
-  jumpVolume: 0.25
+  jumpVolume: 0.457
+  intoWaterVolume: 0.497
+  outOfWaterVolume: 0.387
   footstepsVolume: 0.5
-  intoWaterVolume: 0.6
-  outOfWaterVolume: 0.6
+  swimmingVolume: 1
   normalAmbianceVolume: 1
-  waterAmbianceVolume: 1
-  warningVolume: 0.3
-  gameOverVolume: 1
-  UIClickVolume: 1
-  UIHoverVolume: 1
+  waterAmbianceVolume: 0.4
+  warningVolume: 0.39
+  gameOverVolume: 0.826
+  UIClickVolume: 0.421
+  UIHoverVolume: 0.35
   menuMusicClip: {fileID: 8300000, guid: a76429a7d1f4eca4b99d5ada545c3ac0, type: 3}
   gameMusicClip: {fileID: 8300000, guid: c63172782b4362843ae4c7199c30a2d7, type: 3}
   jumpClips:
@@ -1105,6 +1106,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 52f0cd39202ece44ebdf6aad7e8f64b2, type: 3}
   - {fileID: 8300000, guid: 7b301c32db5ca6043a45dd90cb1f8b22, type: 3}
   footstepsClip: {fileID: 8300000, guid: fa79e8518cf64724bae00aba2123d1af, type: 3}
+  swimmingClip: {fileID: 8300000, guid: 555c3041e99872747a77acb60c39bf11, type: 3}
   normalAmbianceClip: {fileID: 8300000, guid: bc3183baee3d69b4f91204862a03d8e6, type: 3}
   waterAmbianceClip: {fileID: 8300000, guid: 26d1686149546614a8572a03fc375857, type: 3}
   warningClips:
@@ -1118,7 +1120,7 @@ MonoBehaviour:
   music: {fileID: 1263593190343067010}
   ambiance: {fileID: 6045988158714718187}
   jumpSource: {fileID: 6045988159921335153}
-  footsteps: {fileID: 6045988160073430138}
+  movement: {fileID: 6045988160073430138}
   outOfWaterSource: {fileID: 6045988159427353153}
   intoWaterSource: {fileID: 6045988158880904548}
   warningSource: {fileID: 6045988159018606859}

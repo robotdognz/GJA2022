@@ -10,9 +10,10 @@ public class AudioManager : MonoBehaviour
 
     [Header("Player Mixer")]
     [SerializeField][Range(0f, 1f)] float jumpVolume = 1f;
-    [SerializeField][Range(0f, 1f)] float footstepsVolume = 1f;
     [SerializeField][Range(0f, 1f)] float intoWaterVolume = 1f;
     [SerializeField][Range(0f, 1f)] float outOfWaterVolume = 1f;
+    [SerializeField][Range(0f, 1f)] float footstepsVolume = 1f;
+    [SerializeField][Range(0f, 1f)] float swimmingVolume = 1f;
 
     [Header("Ambiance Mixer")]
     [SerializeField][Range(0f, 1f)] float normalAmbianceVolume = 1f;
@@ -33,6 +34,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip[] intoWaterClips;
     [SerializeField] AudioClip[] outOfWaterClips;
     [SerializeField] AudioClip footstepsClip;
+    [SerializeField] AudioClip swimmingClip;
 
     [Header("Ambiance Clips")]
     [SerializeField] AudioClip normalAmbianceClip;
@@ -48,7 +50,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource music;
     [SerializeField] AudioSource ambiance;
     [SerializeField] AudioSource jumpSource;
-    [SerializeField] AudioSource footsteps;
+    [SerializeField] AudioSource movement;
     [SerializeField] AudioSource outOfWaterSource;
     [SerializeField] AudioSource intoWaterSource;
     [SerializeField] AudioSource warningSource;
@@ -151,15 +153,15 @@ public class AudioManager : MonoBehaviour
 
     public bool FootstepsActive()
     {
-        return footsteps.isPlaying;
+        return movement.isPlaying;
     }
 
     public void StartFootsteps()
     {
-        footsteps.clip = footstepsClip;
-        footsteps.volume = footstepsVolume;
-        footsteps.time = Random.value * footstepsClip.length;
-        footsteps.Play();
+        movement.clip = footstepsClip;
+        movement.volume = footstepsVolume;
+        movement.time = Random.value * footstepsClip.length;
+        movement.Play();
 
         // if (!footsteps.isPlaying)
         // {
@@ -168,10 +170,19 @@ public class AudioManager : MonoBehaviour
         //     fade = StartCoroutine(FadeSource(footsteps, footstepsVolume, 0.2f, false));
         // }
     }
-
-    public void StopFootsteps()
+    
+    public void StartSwimming()
     {
-        footsteps.Stop();
+        movement.clip = swimmingClip;
+        movement.volume = swimmingVolume;
+        movement.time = Random.value * swimmingClip.length;
+        movement.Play();
+
+    }
+
+    public void StopMovementSounds()
+    {
+        movement.Stop();
 
         // if (footsteps.isPlaying)
         // {

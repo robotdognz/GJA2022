@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         audioManager.PlayGameOverClip();
-        audioManager.StopFootsteps();
+        audioManager.StopMovementSounds();
 
         if (transition < 0.5f)
         {

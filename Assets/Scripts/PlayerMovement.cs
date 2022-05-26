@@ -104,17 +104,22 @@ public class PlayerMovement : MonoBehaviour
                 // on land and moving on x-axis
                 playerSounds.audioManager.StartFootsteps();
             }
+            else if (myCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
+            {
+                // in air or not moving on x-axis
+                playerSounds.audioManager.StartSwimming();
+            }
             else
             {
                 // in air or not moving on x-axis
-                playerSounds.audioManager.StopFootsteps();
+                playerSounds.audioManager.StopMovementSounds();
             }
 
         }
         else
         {
             playerAnimation.PauseAnimation();
-            playerSounds.audioManager.StopFootsteps();
+            playerSounds.audioManager.StopMovementSounds();
         }
     }
 
