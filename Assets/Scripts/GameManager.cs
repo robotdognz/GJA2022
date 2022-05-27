@@ -76,6 +76,9 @@ public class GameManager : MonoBehaviour
                 audioManager.StartGameMusic();
             }
         }
+
+        // hide curser
+        Cursor.visible = false;
     }
 
     void Update()

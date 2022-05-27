@@ -46,6 +46,9 @@ public class MenuHandler : MonoBehaviour
         {
             audioManager = audioManagers[0];
         }
+
+        // hide curser
+        Cursor.visible = false;
     }
 
 
@@ -55,6 +58,7 @@ public class MenuHandler : MonoBehaviour
         {
             // deselect buttons
             EventSystem.current.SetSelectedGameObject(null);
+            Cursor.visible = true;
         }
     }
 
@@ -70,6 +74,7 @@ public class MenuHandler : MonoBehaviour
                 EventSystem.current.SetSelectedGameObject(primaryButton.gameObject);
                 // Debug.Log("Switched to button navigation, nav");
             }
+            Cursor.visible = false;
         }
     }
 
