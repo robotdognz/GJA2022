@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -118,6 +119,8 @@ public class GameManager : MonoBehaviour
     {
         audioManager.PlayGameOverClip();
         audioManager.StopMovementSounds();
+
+        FindObjectOfType<MenuHandler>().isActive = true;
 
         if (transition < 0.5f)
         {
