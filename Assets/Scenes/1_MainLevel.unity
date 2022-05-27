@@ -105085,10 +105085,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1972585699}
     - target: {fileID: 7732278880631055925, guid: 895dc089d1b2c67498df500201b83c2d, type: 3}
-      propertyPath: isActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7732278880631055925, guid: 895dc089d1b2c67498df500201b83c2d, type: 3}
       propertyPath: primaryButton
       value: 
       objectReference: {fileID: 749705359}

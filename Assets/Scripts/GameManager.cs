@@ -136,6 +136,12 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator WinGame()
     {
+        // prevent timer running down during the win game wait
+        if (timerRunning)
+        {
+            timer = 4;
+        }
+
         // pause for a moment before ending
         float fadeOutTime = 1;
         yield return new WaitForSecondsRealtime(fadeOutTime);

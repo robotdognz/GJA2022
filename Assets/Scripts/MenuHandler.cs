@@ -14,29 +14,18 @@ public class MenuHandler : MonoBehaviour
     string currentInput = "";
     AudioManager audioManager;
 
+    // known issues: 
+    // - title screen plays button selection sound when it opens
+    // - pressing down when no buttons are selected moves down to the second option immediately, instead of starting on the first option
+
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Hello world!");
-
         // setup input
         playerInput = GetComponent<PlayerInput>();
         if (playerInput != null)
         {
-            // set keyboard and mouse input as default
-            playerInput.SwitchCurrentControlScheme("Keyboard&Mouse");
-            EventSystem.current.SetSelectedGameObject(null);
-        }
-        else
-        {
-            playerInput = FindObjectOfType<PlayerInput>();
-            if (playerInput != null)
-            {
-                // set keyboard and mouse input as default
-                playerInput.SwitchCurrentControlScheme("Keyboard&Mouse");
-                EventSystem.current.SetSelectedGameObject(null);
-                // EventSystem.current.SetSelectedGameObject(primaryButton.gameObject);
-            }
+            EventSystem.current.SetSelectedGameObject(primaryButton.gameObject);
         }
 
         // get audio manager
@@ -60,16 +49,12 @@ public class MenuHandler : MonoBehaviour
     }
 
 
-    void OnLook(InputValue value)
+    void OnMouse(InputValue value)
     {
         if (isActive)
         {
-            if (currentInput == "Keyboard&Mouse")
-            {
-                // deselect buttons
-                EventSystem.current.SetSelectedGameObject(null);
-                Debug.Log("Mouse moved");
-            }
+            // deselect buttons
+            EventSystem.current.SetSelectedGameObject(null);
         }
     }
 
@@ -77,36 +62,29 @@ public class MenuHandler : MonoBehaviour
     {
         // Debug.Log("Navigate");
 
-        // select first button if none selected
-        if (EventSystem.current.currentSelectedGameObject == null)
+        if (isActive)
         {
-            EventSystem.current.SetSelectedGameObject(primaryButton.gameObject);
-            Debug.Log("Switched to button navigation, nav");
+            // select first button if none selected
+            if (EventSystem.current.currentSelectedGameObject == null)
+            {
+                EventSystem.current.SetSelectedGameObject(primaryButton.gameObject);
+                // Debug.Log("Switched to button navigation, nav");
+            }
         }
-
-        // // play sound if navigating in actual direction (not 0,0)
-        // if (value.Get<Vector2>().Equals(new Vector2(0, 1)) || value.Get<Vector2>().Equals(new Vector2(0, -1)))
-        // {
-        //     audioManager.PlayUIHoverClip();
-        // }
     }
 
     void OnMove(InputValue value)
     {
+        // Debug.Log("Move");
+
         if (isActive)
         {
-            Debug.Log("Move");
+            // select first button if none selected
             if (EventSystem.current.currentSelectedGameObject == null)
             {
                 EventSystem.current.SetSelectedGameObject(primaryButton.gameObject);
-                Debug.Log("Switched to button navigation, move");
+                // Debug.Log("Switched to button navigation, move");
             }
-
-            // // play sound if navigating in actual direction (not 0,0)
-            // if (!value.Get<Vector2>().Equals(new Vector2()))
-            // {
-            //     audioManager.PlayUIHoverClip();
-            // }
         }
     }
 
@@ -115,7 +93,11 @@ public class MenuHandler : MonoBehaviour
         if (isActive && playerInput != null)
         {
             currentInput = playerInput.currentControlScheme;
-            Debug.Log(playerInput.currentControlScheme);
+            if (currentInput != "Keyboard&Mouse")
+            {
+                EventSystem.current.SetSelectedGameObject(primaryButton.gameObject);
+            }
+            // Debug.Log(playerInput.currentControlScheme);
         }
 
     }
