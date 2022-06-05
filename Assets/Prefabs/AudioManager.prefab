@@ -1080,9 +1080,9 @@ MonoBehaviour:
   menuMusicVolume: 1
   gameMusicVolume: 0.195
   jumpVolume: 0.457
-  intoWaterVolume: 0.497
-  outOfWaterVolume: 0.387
-  footstepsVolume: 0.474
+  intoWaterVolume: 0.408
+  outOfWaterVolume: 0.366
+  footstepsVolume: 0.401
   swimmingVolume: 0.471
   normalAmbianceVolume: 1
   waterAmbianceVolume: 0.263
